@@ -10,11 +10,11 @@ void Start (){
     CreateDB();
 
 
-    AddScore("Melaine",30);
+    //AddScore("Melaine",30);
 
-    AddScore("Nathan",60);
+    //AddScore("Nathan",60);
 
-    AddScore("Juliette",1);
+    //AddScore("Juliette",1);
 
    
 
@@ -23,7 +23,7 @@ void Start (){
 
 }
 
-public void CreateDB(){
+public void CreateDB(){     
 
     using (var connection = new SqliteConnection(dbName)){
         connection.Open();

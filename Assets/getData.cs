@@ -1,25 +1,36 @@
-using UnityEngine;
-using UnityEngine.UI;
+    using UnityEngine;
+    using UnityEngine.UI;
+    using TMPro;
 
-public class getData : MonoBehaviour
-{
-    public InputField inputField;
-
-    private void Start()
+    public class getData : MonoBehaviour
     {
-        // Ajouter un gestionnaire d'événements pour détecter les changements de texte
-        inputField.onValueChanged.AddListener(OnInputFieldValueChanged);
-    }
+        public TMP_InputField inputField;
+        public Button button;
 
-    private void OnInputFieldValueChanged(string value)
-    {
-        Debug.Log("Nouvelle valeur de texte : " + value);
-    }
+        private void Start()
+        {
+            // Ajouter un gestionnaire d'événements pour détecter les changements de texte
+           
+            
+        }
 
-    public void SubmitInput()
-    {
-        // Récupérer le texte entré lorsque l'utilisateur appuie sur un bouton de soumission
-        string inputText = inputField.text;
-        Debug.Log("Texte soumis : " + inputText);
+        private void Update (){
+              inputField.onValueChanged.AddListener(OnInputFieldValueChanged);
+             button.onClick.AddListener(delegate { SubmitInput(); });
+            
+           // button.onClick.AddListener(delegate { OnInputFieldValueChanged(inputField.text); });
+
+        }
+
+        private void OnInputFieldValueChanged(string value)
+        {
+            Debug.Log("Nouvelle valeur de texte : " + value);
+        }
+
+        public void SubmitInput()
+        {
+            // Récupérer le texte entré lorsque l'utilisateur appuie sur un bouton de soumission
+            string inputText = inputField.text;
+            Debug.Log("Texte soumis : " + inputText);
+        }
     }
-}

@@ -1,23 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    using TMPro;
+
 
 public class Keyboard : MonoBehaviour
 {
-    string text;
+   
+    public TMP_InputField inputField;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+       
+    }  
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("text = "+text);
+       
     }
 
      public void setletter(string letter){
-            text = text + letter;
+        if(letter == "DELETE"  && inputField.text.Length > 0){
+            inputField.text = inputField.text.Substring(0, inputField.text.Length - 1);
+        }else if(letter != "DELETE"){
+                if(inputField.text.Length < 10){
+                inputField.text =  inputField.text + letter;
+            } else{
+                Debug.Log("Max 10 caractères");
+            }
         }
+
+    }
 }

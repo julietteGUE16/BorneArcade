@@ -5,6 +5,7 @@ using Mono.Data.Sqlite;
 public class dataBase : MonoBehaviour
 {
  private string dbName = "URI=file:Score.db";
+ 
 
 void Start (){
 

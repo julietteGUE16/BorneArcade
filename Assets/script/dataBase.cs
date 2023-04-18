@@ -7,8 +7,8 @@ public class dataBase : MonoBehaviour
  private string dbName = "URI=file:Score.db";
 
 void Start (){
-    CreateDB();
 
+    CreateDB();
 
     //AddScore("Melaine",30);
 
@@ -18,8 +18,8 @@ void Start (){
 
    
 
-
-    DisplayScore();
+    //todo 
+    //DisplayScore();
 
 }
 

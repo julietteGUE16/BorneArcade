@@ -21,7 +21,9 @@ public class Keyboard : MonoBehaviour
     }
 
      public void setletter(string letter){
-        if(letter == "DELETE"  && inputField.text.Length > 0){
+        if(letter == "Suppr"){
+            inputField.text = "";
+       }else if(letter == "DELETE"  && inputField.text.Length > 0){
             inputField.text = inputField.text.Substring(0, inputField.text.Length - 1);
         }else if(letter != "DELETE"){
                 if(inputField.text.Length < 10){

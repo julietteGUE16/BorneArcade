@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 135818880}
   - component: {fileID: 135818879}
   - component: {fileID: 135818881}
-  - component: {fileID: 135818882}
   - component: {fileID: 135818883}
+  - component: {fileID: 135818884}
   m_Layer: 0
   m_Name: joueur
   m_TagString: Untagged
@@ -240,19 +240,6 @@ MonoBehaviour:
   m_DefaultActionMap: PLAYER
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &135818882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135818877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5457c9861db8e014e8f9cf81b17160a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 35
 --- !u!50 &135818883
 Rigidbody2D:
   serializedVersion: 4
@@ -274,6 +261,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &135818884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135818877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb479f14f6f912b4fb851da44882e585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 35
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 9005b579-327f-4132-96d8-4437131db8c6
+  m_DefaultActionMap: PLAYER2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1913199909
@@ -484,7 +484,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.12904951, g: 0.8441343, b: 0.9433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -502,7 +502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913199907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.308, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

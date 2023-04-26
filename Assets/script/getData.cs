@@ -4,7 +4,7 @@
 
     public class getData : MonoBehaviour
     {
-        public TMP_InputField inputField;
+       public TextMeshProUGUI namePlayer;
         public Button button;
         dataBase dataBase;
           string inputText;
@@ -13,10 +13,10 @@
         {
             // Ajouter un gestionnaire d'événements pour détecter les changements de texte
             dataBase = GameObject.FindObjectOfType<dataBase>();
-            inputField = FindObjectOfType<TMP_InputField>();
-            if (inputField != null)
+            namePlayer = GameObject.Find("name").GetComponent<TextMeshProUGUI>();
+            if (namePlayer != null)
             {
-                inputField.text = "";
+                namePlayer.text = "";
             }
            
             
@@ -24,17 +24,15 @@
 
         private void Update (){
 
-        /*if(inputField.text.Length > 0){
+        /*if(namePlayer.text.Length > 0){
             
-           Debug.Log("Soumettre le texte entré : "+inputField.text);
+           Debug.Log("Soumettre le texte entré : "+namePlayer.text);
         } else {
             Debug.Log("Veuillez rentrer un nom");
         }*/
         }
 
-        public void setletter(string letter){
-            inputField.text = inputField.text + letter;
-        }
+       
 
         
 
@@ -42,7 +40,7 @@
         {
                
             // Récupérer le texte entré lorsque l'utilisateur appuie sur un bouton de soumission
-            inputText  = inputField.text;
+            inputText  = namePlayer.text;
             dataBase.AddScore(inputText, 1);
            
             Debug.Log("Texte soumis : " + inputText);

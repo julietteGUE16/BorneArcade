@@ -26,6 +26,17 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20888c96-9fbd-4b05-a6e7-9a6cbd261643",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -6,16 +6,28 @@
             "id": "af66e651-5461-46ca-871d-c0f322fb0e08",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "move",
+                    "type": "Value",
                     "id": "3a0c2fef-7952-4d14-a0df-175a1e69d008",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
-            "bindings": []
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "21831683-3cf4-4999-952b-94d3ad4da004",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

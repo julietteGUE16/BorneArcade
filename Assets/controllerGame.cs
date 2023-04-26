@@ -3,45 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
-using System.Management;
+
+
 
 
 public class controllerGame : MonoBehaviour
 {
-    private InputDevice stickController1;
-    private InputDevice stickController2;
-
-    private Joystick j1;
+    
+    private Gamepad j1;
     private Joystick j2;
 
+    private Rigidbody2D rb;
+    public float speed=10f;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
 
-        // Query all USB devices using WMI
-        ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_USBControllerDevice");
-        ManagementObjectCollection collection = searcher.Get();
-
-        // Iterate through each USB device and print its details
-        foreach (ManagementObject device in collection)
-        {
-            // Retrieve the device's path and name
-            string devicePath = (string)device["Dependent"];
-            string deviceName = (string)device["Antecedent"];
-
-            // Parse the device's ID from its path
-            string deviceId = devicePath.Substring(devicePath.IndexOf("DeviceID") + 10).Replace("\\", "").Replace("\"", "");
-
-            // Print the device's ID and name
-            Debug.Log("Device ID: " + deviceId);
-            Debug.Log("Device Name: " + deviceName);
-        }
-
+        rb =GetComponent<Rigidbody2D>();
+        Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
+      
+        Debug.Log(" device 4 :  "+devices[0].name);
+        Debug.Log(" device 5 :  "+devices[1].name);
 
-        this.j1 = devices[4] as Joystick;
-        this.j2 = devices[5] as Joystick;
+        
+
+        this.j1 = devices[0] as Gamepad;
+        this.j2 = devices[1] as Joystick;
+
+        Debug.Log("j1 : "+j1);
         
     }
 
@@ -49,11 +43,30 @@ public class controllerGame : MonoBehaviour
     void Update()
     {
         if (j1 != null){
-            Debug.Log(j1.stick.x);
-            Debug.Log(j1.stick.y);
+            //Debug.Log(j1.stick.x);
+           // Debug.Log(j1.stick.y);
+           
+          
+          
+           // Lire la valeur du stick analogique gauche en tant que Vector2
+        Vector2 stickPosition = j1.leftStick.ReadValue();
+                Debug.Log("Position du stick analogique gauche : " + stickPosition);
+
+                rb.velocity = stickPosition * speed;
+
         } else {
-            //Debug.Log("j1 null");
+           // Debug.Log("j1 null");
         }
+
+        //j2.stick.x.ReadValue();
         
     }
+
+     /*private void OnMove(InputValue input){
+          Debug.Log("P2");
+          Vector2 inputVec = input.Get<Vector2>();
+          Vector2 vel = rb.velocity;
+          Vector2 pos = transform.position;
+          rb.velocity = inputVec * speed;
+     }*/
 }

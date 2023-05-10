@@ -4,7 +4,7 @@ using UnityEngine;
     using TMPro;
 
 
-public class Keyboard : MonoBehaviour
+public class ControllerKeyboard : MonoBehaviour
 {
    
     public TextMeshProUGUI namePlayer;

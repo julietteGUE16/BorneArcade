@@ -666,7 +666,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Standalone: UNITY_LINUX_ARM;UNITY_EDITOR_WIN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

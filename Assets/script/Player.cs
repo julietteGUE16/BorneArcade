@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Controls;
 
 
 
-public class controllerGamePlayer2 : MonoBehaviour
+public class Player : MonoBehaviour
 {
     
    
@@ -15,7 +15,8 @@ public class controllerGamePlayer2 : MonoBehaviour
 
     private Rigidbody2D rb;
     public float speed=10f;
-    menuStart menuStart;
+    public int playerNumber;
+
     Joystick j2;
     Gamepad g2;
     // Start is called before the first frame update
@@ -24,15 +25,15 @@ public class controllerGamePlayer2 : MonoBehaviour
         rb =GetComponent<Rigidbody2D>();
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
-        menuStart = FindObjectOfType<menuStart>();
-        Debug.Log(" device 1 :  "+devices[1].name);
-        Debug.Log("test = "+devices[1].name.Contains("XInputControllerWindows"));
+      
+        Debug.Log(" device 1 :  "+devices[playerNumber].name);
+        Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
         if(devices.Count>1){
-          if(devices[1].name.Contains("XInputControllerWindows")){
-           g2 = devices[1] as Gamepad;
+          if(devices[playerNumber].name.Contains("XInputControllerWindows")){
+           g2 = devices[playerNumber] as Gamepad;
            Debug.Log("g1 : "+g2.name);
         }else {
-            j2 = devices[1] as Joystick;
+            j2 = devices[playerNumber] as Joystick;
         }
         }
 

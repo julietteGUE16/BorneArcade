@@ -24,7 +24,9 @@ public class controllerGamePlayer2 : MonoBehaviour
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
         menuStart = FindObjectOfType<menuStart>();
+        Debug.Log(" menuStart :  "+menuStart.Jj3);
         Jj3= menuStart.Jj3;
+
         //Debug.Log(" device 4 :  "+devices[0].name);
         //Debug.Log(" device 5 :  "+devices[1].name);
       
@@ -48,13 +50,16 @@ public class controllerGamePlayer2 : MonoBehaviour
          //pour le gamepad
         //Debug.Log("j2 : "+j2.leftStick.ReadValue());
         if(menuStart != null && menuStart.Jj3 != null){
+             // Vector2 stickPosition = Jj3.stick.ReadValue();
+    
+           // rb.velocity = stickPosition * speed;
             //Debug.Log("Jj3 : "+menuStart.Jj3.stick.ReadValue());
         }else {
            // Debug.Log("Jj3 null");
         }
-        Vector2 stickPosition = Jj3.stick.ReadValue();
-    
-        rb.velocity = stickPosition * speed;
+
+      
+        
 
        
 

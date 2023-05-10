@@ -14,6 +14,7 @@ public class controllerPlayer : MonoBehaviour
     public float speed=10f;
     menuStart menuStart;
     Joystick Jj4;
+    SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,10 @@ public class controllerPlayer : MonoBehaviour
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
         menuStart = FindObjectOfType<menuStart>();
-        Jj4= menuStart.Jj4;
+        Debug.Log(" menuStart voir jj4 :  "+menuStart.Jj4);
+        //Jj4= menuStart.Jj4;
+        Jj4 = devices[0] as Joystick;
+        sprite = GetComponent<SpriteRenderer>();
         //Debug.Log(" device 4 :  "+devices[0].name);
         //Debug.Log(" device 5 :  "+devices[1].name);
       
@@ -39,19 +43,31 @@ public class controllerPlayer : MonoBehaviour
 
 
         
-
+       
           
          // Lire la valeur du stick analogique gauche en tant que Vector2
          //pour le gamepad
         //Debug.Log("j2 : "+j2.leftStick.ReadValue());
         if(menuStart != null && menuStart.Jj4 != null){
-            Debug.Log("Jj4 : "+menuStart.Jj4.stick.ReadValue());
-        }else {
-            Debug.Log("Jj4 null");
+            if(Jj4.trigger.ReadValue() == 1){
+            sprite.color = Color.blue;
+        }else{
+            sprite.color = Color.white;
         }
+
+
+        
+        Debug.Log(" Trigger "+Jj4.trigger.ReadValue());
+        Debug.Log(" twist  "+Jj4.twist.ReadValue());
+        //Debug.Log(" hatswitch  "+Jj4.hatswitch.ReadValue());
         Vector2 stickPosition = Jj4.stick.ReadValue();
     
         rb.velocity = stickPosition * speed;
+            //Debug.Log("Jj4 : "+menuStart.Jj4.stick.ReadValue());
+        }else {
+            //Debug.Log("Jj4 null");
+        }
+
 
        
 

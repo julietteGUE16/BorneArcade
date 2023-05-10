@@ -13,7 +13,8 @@ public class controllerPlayer : MonoBehaviour
     private Rigidbody2D rb;
     public float speed=10f;
     menuStart menuStart;
-    Joystick Jj4;
+    Joystick j1=null;
+    Gamepad g1=null;
     SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,19 @@ public class controllerPlayer : MonoBehaviour
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
         menuStart = FindObjectOfType<menuStart>();
-        Debug.Log(" menuStart voir jj4 :  "+menuStart.Jj4);
-        //Jj4= menuStart.Jj4;
-        Jj4 = devices[0] as Joystick;
         sprite = GetComponent<SpriteRenderer>();
-        //Debug.Log(" device 4 :  "+devices[0].name);
-        //Debug.Log(" device 5 :  "+devices[1].name);
+       
+          if(devices.Count>0){
+       if(devices[0].name.Contains("XInputControllerWindows")){
+           g1 = devices[0] as Gamepad;
+           Debug.Log("g1 : "+g1.name);
+       }else {
+           j1 = devices[0] as Joystick;
+       }
+          }
+       
+    
+ 
       
 
       
@@ -48,24 +56,32 @@ public class controllerPlayer : MonoBehaviour
          // Lire la valeur du stick analogique gauche en tant que Vector2
          //pour le gamepad
         //Debug.Log("j2 : "+j2.leftStick.ReadValue());
-        if(menuStart != null && menuStart.Jj4 != null){
-            if(Jj4.trigger.ReadValue() == 1){
+        if(j1 != null){
+            if(j1.trigger.ReadValue() == 1){
             sprite.color = Color.blue;
         }else{
             sprite.color = Color.white;
         }
 
 
-        
-        Debug.Log(" Trigger "+Jj4.trigger.ReadValue());
-        Debug.Log(" twist  "+Jj4.twist.ReadValue());
-        //Debug.Log(" hatswitch  "+Jj4.hatswitch.ReadValue());
-        Vector2 stickPosition = Jj4.stick.ReadValue();
+        Vector2 stickPosition = j1.stick.ReadValue();
     
         rb.velocity = stickPosition * speed;
-            //Debug.Log("Jj4 : "+menuStart.Jj4.stick.ReadValue());
-        }else {
-            //Debug.Log("Jj4 null");
+            
+        }else if(g1 != null){
+            if(g1.leftTrigger.ReadValue() == 1){
+            sprite.color = Color.blue;
+        }
+        else{
+            sprite.color = Color.white;
+        }
+        Vector2 stickPosition = g1.leftStick.ReadValue();
+
+        rb.velocity = stickPosition * speed;
+        }
+        
+        else {
+         Debug.Log("j1 et g1 null");
         }
 
 

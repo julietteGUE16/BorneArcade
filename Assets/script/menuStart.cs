@@ -15,8 +15,7 @@ public class menuStart : MonoBehaviour
     private Gamepad j2=null;
     private Joystick Jj1=null;
     private Joystick Jj2=null;
-    public Joystick Jj3=null;
-    public Joystick Jj4=null;
+    
 
    
 
@@ -45,8 +44,8 @@ public class menuStart : MonoBehaviour
         Debug.Log(" devices :  "+devices.Count);
         if(devices.Count>0){
          // Jj3 = devices[0] as Joystick;
-         Jj4 = devices[0] as Joystick;
-            Debug.Log("Jj4 : "+Jj4.name);
+         Jj2 = devices[0] as Joystick;
+            Debug.Log("Jj4 : "+Jj2.name);
           if(devices.Count>1){
            
           }
@@ -68,21 +67,7 @@ public class menuStart : MonoBehaviour
         //gamePad
         //Debug.Log("J1 : "+j1.leftStick.ReadValue());
         //Joystick
-        if(Jj2 != null){
-        //Debug.Log("Jj2 : "+Jj2.stick.ReadValue());  
-        }
-
-        if(Jj3 != null){
-          //Debug.Log("Jj3 : "+Jj3.stick.ReadValue());  
-        }
-
-        if(Jj2 != null){
-        //Debug.Log("Jj4 : "+Jj4.stick.ReadValue());  
-        }
-        if(Jj4 != null){
-        //Debug.Log("Jj4 : "+Jj4.stick.ReadValue());  
-        }
-
-        //Debug.Log("Jj2 : " + Jj2.buttonSouth.ReadValue());; 
+       
+   
 }
 }

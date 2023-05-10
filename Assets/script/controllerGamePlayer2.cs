@@ -16,7 +16,8 @@ public class controllerGamePlayer2 : MonoBehaviour
     private Rigidbody2D rb;
     public float speed=10f;
     menuStart menuStart;
-    Joystick Jj3;
+    Joystick j2;
+    Gamepad g2;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,16 @@ public class controllerGamePlayer2 : MonoBehaviour
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
         menuStart = FindObjectOfType<menuStart>();
-        Debug.Log(" menuStart :  "+menuStart.Jj3);
-        Jj3= menuStart.Jj3;
+        Debug.Log(" device 1 :  "+devices[1].name);
+        Debug.Log("test = "+devices[1].name.Contains("XInputControllerWindows"));
+        if(devices.Count>1){
+          if(devices[1].name.Contains("XInputControllerWindows")){
+           g2 = devices[1] as Gamepad;
+           Debug.Log("g1 : "+g2.name);
+        }else {
+            j2 = devices[1] as Joystick;
+        }
+        }
 
         //Debug.Log(" device 4 :  "+devices[0].name);
         //Debug.Log(" device 5 :  "+devices[1].name);
@@ -45,19 +54,24 @@ public class controllerGamePlayer2 : MonoBehaviour
 
         
 
+          if(j2 != null){
           
-         // Lire la valeur du stick analogique gauche en tant que Vector2
-         //pour le gamepad
-        //Debug.Log("j2 : "+j2.leftStick.ReadValue());
-        if(menuStart != null && menuStart.Jj3 != null){
-             // Vector2 stickPosition = Jj3.stick.ReadValue();
-    
-           // rb.velocity = stickPosition * speed;
-            //Debug.Log("Jj3 : "+menuStart.Jj3.stick.ReadValue());
-        }else {
-           // Debug.Log("Jj3 null");
-        }
 
+
+        Vector2 stickPosition = j2.stick.ReadValue();
+    
+        rb.velocity = stickPosition * speed;
+            
+        }else if(g2 != null){
+           
+        Vector2 stickPosition = g2.leftStick.ReadValue();
+
+        rb.velocity = stickPosition * speed;
+        }
+        
+        else {
+         Debug.Log("j2 et g2 null");
+        }
       
         
 

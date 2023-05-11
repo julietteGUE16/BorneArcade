@@ -19,7 +19,13 @@ public class Player : MonoBehaviour
     public float speed=10f;
     public int playerNumber;
     public string playerName;
-    public TextMeshProUGUI playerNameText;
+    private Vector2 smoothDampVelocity;
+    public float smoothDampTime = 0.1f;
+    Vector2 stickPosition;
+    public float rotationSpeed = 5f;
+    public bool isStartLeft;
+    public bool isStartFinish=false;
+   
 
     Joystick j2;
     Gamepad g2;
@@ -63,21 +69,46 @@ public class Player : MonoBehaviour
           
 
 
-        Vector2 stickPosition = j2.stick.ReadValue();
+         stickPosition = j2.stick.ReadValue();
     
         rb.velocity = stickPosition * speed;
             
         }else if(g2 != null){
            
-        Vector2 stickPosition = g2.leftStick.ReadValue();
+         stickPosition = g2.leftStick.ReadValue();
 
-        rb.velocity = stickPosition * speed;
+        //rb.velocity = stickPosition * speed;
+
+        Vector2 targetVelocity = stickPosition * speed;
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref smoothDampVelocity, smoothDampTime);
         }
         
         else {
          Debug.Log("j2 et g2 null");
         }
-      
+
+          Vector2 movementDirection = stickPosition.normalized;
+           
+
+    if (movementDirection != Vector2.zero)
+{
+    float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
+    
+    // Ajuster l'angle de rotation en fonction de la direction
+    if(!isStartFinish){
+        isStartFinish = true;
+    if (movementDirection.x < 0f)
+    {
+        if(isStartLeft){
+        angle += 180f; // Si la direction est vers la gauche, ajouter 180 degrés
+        }
+    }
+    }
+    
+          Quaternion targetRotation = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    
+}
         
 
        

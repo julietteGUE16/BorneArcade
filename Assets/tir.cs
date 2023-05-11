@@ -17,6 +17,8 @@ public class tir : MonoBehaviour
     }
     void Start()
     {
+        
+        Debug.Log(mouvement);
         GetComponent<Rigidbody2D>().velocity = mouvement * tirSpeed;
        
     }

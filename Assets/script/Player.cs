@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public bool isStartLeft;
     public bool isStartFinish=false;
     public Vector2 movement = Vector2.zero;
+    public Vector2 lastMovement = Vector2.zero;
+
    
 
     Joystick j2;
@@ -83,14 +85,17 @@ public class Player : MonoBehaviour
 
         Vector2 targetVelocity = stickPosition * speed;
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref smoothDampVelocity, smoothDampTime);
-        
+    
+        movement = stickPosition;
+        if(movement != Vector2.zero){
+            lastMovement = movement;
+        }
         if(g2.buttonSouth.wasPressedThisFrame){
 
             //playerMouvement
             Debug.Log("tir");
-           
-           
-            weapon.playerMovement = targetVelocity;
+            
+            weapon.playerMovement = lastMovement.normalized;
             weapon.EffectuerTir();
         }
         

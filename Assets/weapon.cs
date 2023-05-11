@@ -28,7 +28,8 @@ public class weapon : MonoBehaviour
          projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
         
 
-        projectilePrefab.GetComponent<tir>().SetDirection(playerMovement);
+        projectilePrefab.GetComponent<tir>().mouvement = playerMovement;
+       
          //projectile.GetComponent<tir>().mouvement = playerMovement;
 
         // Ajouter une force au projectile pour le faire avancer

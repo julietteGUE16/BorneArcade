@@ -14,17 +14,18 @@ public class Player : MonoBehaviour
     
    
    
-
+    public weapon weapon;
     private Rigidbody2D rb;
     public float speed=10f;
     public int playerNumber;
-    public string playerName;
+    public string playerName="";
     private Vector2 smoothDampVelocity;
     public float smoothDampTime = 0.1f;
     Vector2 stickPosition;
     public float rotationSpeed = 5f;
     public bool isStartLeft;
     public bool isStartFinish=false;
+    public Vector2 movement = Vector2.zero;
    
 
     Joystick j2;
@@ -32,16 +33,17 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weapon = FindObjectOfType<weapon>();
         rb =GetComponent<Rigidbody2D>();
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
       
-        Debug.Log(" device 1 :  "+devices[playerNumber].name);
-        Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
+        //Debug.Log(" device 1 :  "+devices[playerNumber].name);
+        //Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
         if(devices.Count>1){
           if(devices[playerNumber].name.Contains("XInputControllerWindows")){
            g2 = devices[playerNumber] as Gamepad;
-           Debug.Log("g1 : "+g2.name);
+           //Debug.Log("g1 : "+g2.name);
         }else {
             j2 = devices[playerNumber] as Joystick;
         }
@@ -81,6 +83,18 @@ public class Player : MonoBehaviour
 
         Vector2 targetVelocity = stickPosition * speed;
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref smoothDampVelocity, smoothDampTime);
+        
+        if(g2.buttonSouth.wasPressedThisFrame){
+
+            //playerMouvement
+            Debug.Log("tir");
+           
+           
+            weapon.playerMovement = targetVelocity;
+            weapon.EffectuerTir();
+        }
+        
+        
         }
         
         else {

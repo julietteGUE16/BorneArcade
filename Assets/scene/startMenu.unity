@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 151862853}
   - component: {fileID: 151862852}
   - component: {fileID: 151862855}
-  - component: {fileID: 151862856}
   m_Layer: 5
   m_Name: start
   m_TagString: Untagged
@@ -270,30 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4722e34e06746a45b9c254d04d8189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &151862856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151862849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974c24d313c07ba4ba644646ebb15fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 151862852}
-  buttonText: {fileID: 0}
-  colorGreen:
-    r: 0.15874606
-    g: 0.9433962
-    b: 0
-    a: 1
-  colorBase:
-    r: 0.6603774
-    g: 0.6603774
-    b: 0.6603774
-    a: 1
 --- !u!1 &237110637
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +282,6 @@ GameObject:
   - component: {fileID: 237110641}
   - component: {fileID: 237110640}
   - component: {fileID: 237110643}
-  - component: {fileID: 237110644}
   m_Layer: 5
   m_Name: quit
   m_TagString: Untagged
@@ -441,30 +415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4722e34e06746a45b9c254d04d8189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &237110644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237110637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974c24d313c07ba4ba644646ebb15fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 237110640}
-  buttonText: {fileID: 0}
-  colorGreen:
-    r: 0.15874606
-    g: 0.9433962
-    b: 0
-    a: 1
-  colorBase:
-    r: 0.6603774
-    g: 0.6603774
-    b: 0.6603774
-    a: 1
 --- !u!1 &984507126
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +428,6 @@ GameObject:
   - component: {fileID: 984507130}
   - component: {fileID: 984507129}
   - component: {fileID: 984507132}
-  - component: {fileID: 984507133}
   m_Layer: 5
   m_Name: score
   m_TagString: Untagged
@@ -612,30 +561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4722e34e06746a45b9c254d04d8189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &984507133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984507126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974c24d313c07ba4ba644646ebb15fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 984507129}
-  buttonText: {fileID: 0}
-  colorGreen:
-    r: 0.15874606
-    g: 0.9433962
-    b: 0
-    a: 1
-  colorBase:
-    r: 0.6603774
-    g: 0.6603774
-    b: 0.6603774
-    a: 1
 --- !u!1 &1016598232
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 258}
+  m_AnchoredPosition: {x: 42, y: 311}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278128588
@@ -798,8 +723,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BORNE D'ARCADE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2170f571a8a3a2447b863533f11bdeed, type: 2}
+  m_sharedMaterial: {fileID: 2338515157257097493, guid: 2170f571a8a3a2447b863533f11bdeed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -823,8 +748,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -859,7 +784,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -119.76538, y: 0, z: -215.91528, w: -30.363037}
+  m_margin: {x: -463.79828, y: 0, z: -368.23486, w: -174.80426}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -964,7 +889,6 @@ GameObject:
   - component: {fileID: 1473596854}
   - component: {fileID: 1473596853}
   - component: {fileID: 1473596856}
-  - component: {fileID: 1473596857}
   m_Layer: 5
   m_Name: rules
   m_TagString: Untagged
@@ -1098,30 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4722e34e06746a45b9c254d04d8189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1473596857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473596850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974c24d313c07ba4ba644646ebb15fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 1473596853}
-  buttonText: {fileID: 0}
-  colorGreen:
-    r: 0.15874606
-    g: 0.9433962
-    b: 0
-    a: 1
-  colorBase:
-    r: 0.6603774
-    g: 0.6603774
-    b: 0.6603774
-    a: 1
 --- !u!1 &1952968427
 GameObject:
   m_ObjectHideFlags: 0

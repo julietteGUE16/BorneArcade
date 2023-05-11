@@ -10,6 +10,9 @@ public class ControllerKeyboard : MonoBehaviour
     public TextMeshProUGUI namePlayer;
     public TextMeshProUGUI setNamePlayerText;
     public TextMeshProUGUI maxCharacters;
+    TextMeshProUGUI playerNumber;
+    bool isPlayer2 = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,7 @@ public class ControllerKeyboard : MonoBehaviour
         setNamePlayerText.enabled = true;
         namePlayer.enabled = false;
         maxCharacters.enabled = false;
+        playerNumber = GameObject.Find("player").GetComponent<TextMeshProUGUI>();
     }  
 
     // Update is called once per frame

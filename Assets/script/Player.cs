@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using TMPro;
+
 
 
 
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public float speed=10f;
     public int playerNumber;
+    public string playerName;
+    public TextMeshProUGUI playerNameText;
 
     Joystick j2;
     Gamepad g2;

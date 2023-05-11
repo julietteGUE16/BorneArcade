@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class menuController : MonoBehaviour 
@@ -12,12 +13,16 @@ public class menuController : MonoBehaviour
     ButtonHoverDetector buttonHoverDetector;
     ControllerKeyboard myKeyboard;
     GameObject lastHighlightedButton;
+    getData getData;
+    MyButton myButton;
     // Start is called before the first frame update
     void Start()
     {
+        getData = FindObjectOfType<getData>();
+        myButton = FindObjectOfType<MyButton>();
          var devices = InputSystem.devices;
-         j2 = devices[1] as Joystick;
-         Debug.Log("j2 : "+j2.name);
+         //j2 = devices[1] as Joystick;
+         //Debug.Log("j2 : "+j2.name);
          buttonHoverDetector = FindObjectOfType<ButtonHoverDetector>();
             myKeyboard =    FindObjectOfType<ControllerKeyboard>();
             
@@ -49,10 +54,28 @@ public class menuController : MonoBehaviour
         
     }
 
+    public void goBack(string sceneName)
+    {
+
+         if(getData.isPlayer2 ){
+                getData.isPlayer2 = false;
+                getData.namePlayer.text = getData.playerNames[0];
+                getData.playerNameText.text = "Player 1";
+
+               
+            }else {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            }
+    }
+
     public void loadAllScene(string sceneName)
     {
-        //yield return new WaitForSeconds(0.5f);
+       
+        
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        
+        //yield return new WaitForSeconds(0.5f);
+        
     }
 
     public void Quit ()

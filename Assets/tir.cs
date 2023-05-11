@@ -11,14 +11,11 @@ public class tir : MonoBehaviour
 
     // Update is called once per frame
 
-     public void SetDirection(Vector2 newDirection)
-    {
-        mouvement = newDirection.normalized;
-    }
+   
     void Start()
     {
         
-        Debug.Log(mouvement);
+       
         GetComponent<Rigidbody2D>().velocity = mouvement * tirSpeed;
        
     }
@@ -26,6 +23,18 @@ public class tir : MonoBehaviour
     {
 
         Destroy(gameObject, 1.1f);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }else if(collision.gameObject.tag == "Player"){
+            Debug.Log("player "+collision.gameObject.GetComponent<Player>().playerNumber +" : "+  collision.gameObject.GetComponent<Player>().life);
+            collision.gameObject.GetComponent<Player>().life -= 1;
+            Destroy(gameObject);
+        }
     }
 
 

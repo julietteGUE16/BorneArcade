@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using TMPro;
+using UnityEngine.UI;
 
 
 
@@ -12,21 +13,46 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     
-   
+   public TextMeshProUGUI finish;
    
     public weapon weapon;
     private Rigidbody2D rb;
-    public float speed=10f;
+    menuController menuController;
     public int playerNumber;
-    public string playerName="";
+    
     private Vector2 smoothDampVelocity;
     public float smoothDampTime = 0.1f;
     Vector2 stickPosition;
-    public float rotationSpeed = 5f;
+    
     public bool isStartLeft;
     public bool isStartFinish=false;
     public Vector2 movement = Vector2.zero;
     public Vector2 lastMovement = Vector2.zero;
+
+    public Image life1;
+    public Image life2;
+    public Image life3;
+    public Image life4;
+    public Image life5;
+
+    public Color lifeLose;
+
+    public bool isEnd = false;
+
+
+
+    public string playerName="";
+    public float speed=10f;
+    public float rotationSpeed = 5f;
+    public int life=5;
+    //choisi dans les paramètre et si il est max grosses balles mais grand pause entre les tires
+    public float delayFire=0.2f;
+    //de 1 à 5
+    public int powerFire=1;
+    //
+    public float speedFire=10f;
+
+    public float score = 0f;
 
    
 
@@ -35,7 +61,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = FindObjectOfType<weapon>();
+
+        finish.enabled = false;
         rb =GetComponent<Rigidbody2D>();
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
@@ -51,6 +78,8 @@ public class Player : MonoBehaviour
         }
         }
 
+        menuController =GameObject.FindObjectOfType<menuController>();
+
         //Debug.Log(" device 4 :  "+devices[0].name);
         //Debug.Log(" device 5 :  "+devices[1].name);
       
@@ -65,9 +94,24 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+        if(life == 4){
+            life5.color = lifeLose;
+        }else if(life == 3){
+            life4.color = lifeLose;
+        }else if(life == 2){
+            life3.color = lifeLose;
+        }else if(life == 1){
+            life2.color = lifeLose;
+        }else if(life == 0){
+            if(!isEnd){
+                isEnd = true;
+                life1.color = lifeLose;
+                StartCoroutine(EndGame());
+            }
+         
+              
+        }
 
-
-        
 
           if(j2 != null){
           
@@ -134,6 +178,21 @@ public class Player : MonoBehaviour
 
       
         
+    }
+
+    public IEnumerator EndGame()
+    {
+        //Debug.Log("endGame");
+
+        //TODO : calcul du score
+        finish.enabled = true;
+
+        yield return new WaitForSeconds(2f);
+        
+        
+        menuController.loadAllScene("endGame");   // Attendre 5 secondes
+        
+       
     }
 
      

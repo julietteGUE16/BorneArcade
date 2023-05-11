@@ -8,6 +8,7 @@ public class weapon : MonoBehaviour
     GameObject projectile;
     public GameObject projectilePrefab;
     public Vector2 playerMovement;
+    public Transform spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +26,12 @@ public class weapon : MonoBehaviour
         // Créer le projectile
         
 
-         projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+         projectile = Instantiate(projectilePrefab, spawn.position, spawn.rotation);
         
 
         projectilePrefab.GetComponent<tir>().mouvement = playerMovement;
+
+
        
          //projectile.GetComponent<tir>().mouvement = playerMovement;
 

@@ -76,18 +76,17 @@ public class ControlCurseur : MonoBehaviour
             gameSet.speedRotationPlayer2= CursorRotationSpeedPlayer.GetComponent<Slider>().value;
             gameSet.powerFire2= CursorPowerFirePlayer.GetComponent<Slider>().value;
             gameSet.delayFire2= CursorDelayFirePlayer.GetComponent<Slider>().value;
-            }
-            
+            }            
         }
         }
+
         
     }
 
-    public void ResetCursor(){
-        cursorSpeedPlayer.GetComponent<Slider>().value = 1f;
-        CursorRotationSpeedPlayer.GetComponent<Slider>().value = 1f;
-        CursorPowerFirePlayer.GetComponent<Slider>().value = 1f;
-        CursorDelayFirePlayer.GetComponent<Slider>().value = 1f;
-
+    void ResetCursor(){
+        cursorSpeedPlayer.GetComponent<Slider>().value = 0;
+        CursorRotationSpeedPlayer.GetComponent<Slider>().value = 0;
+        CursorPowerFirePlayer.GetComponent<Slider>().value = 0;
+        CursorDelayFirePlayer.GetComponent<Slider>().value = 0;
     }
 }

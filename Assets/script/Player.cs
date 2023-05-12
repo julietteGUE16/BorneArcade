@@ -12,8 +12,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    
+
    public TextMeshProUGUI finish;
+   public TextMeshProUGUI winner;
+   public TextMeshProUGUI looser;
+   public TextMeshProUGUI namePlayerWinner;
+   public TextMeshProUGUI namePlayerLooser;
+   public Image font;
    
     public weapon weapon;
     private Rigidbody2D rb;
@@ -39,6 +44,8 @@ public class Player : MonoBehaviour
 
     public bool isEnd = false;
 
+    
+
 
 
     public string playerName="";
@@ -61,8 +68,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+         font.enabled = false;
         finish.enabled = false;
+        winner.enabled = false;
+        looser.enabled = false;
+        namePlayerWinner.enabled = false;
+        namePlayerLooser.enabled = false;
         rb =GetComponent<Rigidbody2D>();
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
@@ -183,17 +194,22 @@ public class Player : MonoBehaviour
     public IEnumerator EndGame()
     {
         //Debug.Log("endGame");
-
+       
+        font.enabled = true;
+        winner.enabled = true;
+        looser.enabled = true;
         //TODO : calcul du score
         finish.enabled = true;
-
-        yield return new WaitForSeconds(2f);
-        
+        namePlayerWinner.enabled = true;
+        namePlayerLooser.enabled = true;
+        yield return new WaitForSeconds(4f);
         
         menuController.loadAllScene("endGame");   // Attendre 5 secondes
         
        
     }
+
+     
 
      
     

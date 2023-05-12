@@ -7,6 +7,7 @@ public class PanelOpener : MonoBehaviour
 
     public void OpenPanel()
     {
+       
         panel.SetActive(true);
     }
 

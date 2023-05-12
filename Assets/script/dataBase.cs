@@ -5,7 +5,7 @@ using System;
 
 public class dataBase : MonoBehaviour
 {
- private string dbName = "URI=file:Score.db";
+ private string dbName = "URI=file:BorneArcade.db";
  
 
 void Start (){
@@ -62,17 +62,23 @@ public void AddPlayer(string playerName, float speedPlayer, float speedRotationP
     }
 }
 
-public void AddScore(string name, int score){
+public void UpdatePlayer(int playerId, string newName, float newSpeed, float newPower)
+{
     using (var connection = new SqliteConnection(dbName))
     {
-
         connection.Open();
 
-        using (var command = connection.CreateCommand()){
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = "UPDATE Player SET name = @name, speedPlayer = @speed, powerPlayer = @power WHERE idPlayer = @id";
+            command.Parameters.AddWithValue("@name", newName);
+            command.Parameters.AddWithValue("@speed", newSpeed);
+            command.Parameters.AddWithValue("@power", newPower);
+            command.Parameters.AddWithValue("@id", playerId);
 
-            command.CommandText = "INSERT INTO score (name, total) VALUES ('" +  name + "', '" + score + "');";
             command.ExecuteNonQuery();
         }
+
         connection.Close();
     }
 }

@@ -57,9 +57,12 @@
 
         public void SubmitInput()
         {
+
+           
            
             if(namePlayer.text != ""){
-                OpenPanel();
+                ValiderPanel();
+              
                 /*if(!isPlayer2){
                     playerNames[0] = namePlayer.text;
                     namePlayer.text = "";
@@ -85,7 +88,7 @@
                 }*/
             }
         }
-        public void OpenPanel(){
+        public void ValiderPanel(){
             panelOpener.OpenPanel();
             //eventSystem.firstSelectedGameObject = panelControl;
             eventSystem.SetSelectedGameObject(panelControl);

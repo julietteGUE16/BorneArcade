@@ -61,7 +61,14 @@
            
            
             if(namePlayer.text != ""){
-                ValiderPanel();
+
+                dataBase.FindPlayer(namePlayer.text, isPlayer2);
+
+                panelOpener.OpenPanel(namePlayer.text);
+
+
+                //eventSystem.firstSelectedGameObject = panelControl;
+                eventSystem.SetSelectedGameObject(panelControl);
               
                 /*if(!isPlayer2){
                     playerNames[0] = namePlayer.text;
@@ -89,9 +96,12 @@
             }
         }
         public void ValiderPanel(){
-            panelOpener.OpenPanel();
-            //eventSystem.firstSelectedGameObject = panelControl;
-            eventSystem.SetSelectedGameObject(panelControl);
+
+            panelOpener.ClosePanel();
+
+            dataBase.UpdatePlayer();
+
+
 
         }
     }

@@ -11,7 +11,7 @@ public class tir : MonoBehaviour
 
     // Update is called once per frame
 
-   
+    
     void Start()
     {
         

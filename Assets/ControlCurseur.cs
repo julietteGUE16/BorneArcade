@@ -19,7 +19,7 @@ public class ControlCurseur : MonoBehaviour
     gameSet gameSet;
     getData getData;
     public bool panelOpen = true;
-    bool firstTime = true;
+    public bool firstTime = true;
    
     // Start is called before the first frame update
     void Start()
@@ -69,5 +69,13 @@ public class ControlCurseur : MonoBehaviour
         }
         }
         
+    }
+
+    public void ResetCursor(){
+        cursorSpeedPlayer.GetComponent<Slider>().value = 1f;
+        CursorRotationSpeedPlayer.GetComponent<Slider>().value = 1f;
+        CursorPowerFirePlayer.GetComponent<Slider>().value = 1f;
+        CursorDelayFirePlayer.GetComponent<Slider>().value = 1f;
+
     }
 }

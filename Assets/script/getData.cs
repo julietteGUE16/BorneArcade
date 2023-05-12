@@ -122,6 +122,9 @@
                 dataBase.UpdatePlayer(gameSet.idPlayer2, controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value);
             }
 
+            controlCurseur.ResetCursor();
+            controlCurseur.firstTime = true;
+
             if(!isPlayer2){
                     playerNames[0] = namePlayer.text;
                     namePlayer.text = "";

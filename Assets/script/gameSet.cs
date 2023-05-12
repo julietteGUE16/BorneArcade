@@ -60,7 +60,7 @@ public class gameSet : MonoBehaviour
         if(devices.Count>1){
           if(devices[0].name.Contains("XInputControllerWindows")){
            g2 = devices[0] as Gamepad;
-           //Debug.Log("g1 : "+g2.name);
+           
         }else {
             j2 = devices[0] as Joystick;
         }

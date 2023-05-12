@@ -61,6 +61,7 @@ public class menuController : MonoBehaviour
                 getData.isPlayer2 = false;
                 getData.namePlayer.text = getData.playerNames[0];
                 getData.playerNameText.text = "Player 1";
+                getData.PlayerNameTextPanel.text = "Player 1";
 
                
             }else {

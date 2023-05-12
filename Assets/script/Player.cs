@@ -202,7 +202,7 @@ public class Player : MonoBehaviour
         finish.enabled = true;
         namePlayerWinner.enabled = true;
         namePlayerLooser.enabled = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.6f);
         
         menuController.loadAllScene("endGame");   // Attendre 5 secondes
         

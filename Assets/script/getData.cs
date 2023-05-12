@@ -1,6 +1,7 @@
     using UnityEngine;
     using UnityEngine.UI;
     using TMPro;
+    using UnityEngine.EventSystems;
 
     public class getData : MonoBehaviour
     {
@@ -12,12 +13,17 @@
         menuController menuController;
        
         public TextMeshProUGUI playerNameText;
+        public TextMeshProUGUI PlayerNameTextPanel;
         public TextMeshProUGUI sameName;
+        PanelOpener panelOpener;
+        EventSystem eventSystem;
+        public GameObject panelControl;
         
 
         private void Start()
         {
-           
+           eventSystem = EventSystem.current;
+            panelOpener = GameObject.FindObjectOfType<PanelOpener>();
             menuController = GameObject.FindObjectOfType<menuController>();
             // Ajouter un gestionnaire d'événements pour détecter les changements de texte
             dataBase = GameObject.FindObjectOfType<dataBase>();
@@ -31,6 +37,7 @@
                 namePlayer.text = "";
             }
            
+            panelOpener.ClosePanel();
             
         }
 
@@ -52,10 +59,12 @@
         {
            
             if(namePlayer.text != ""){
-                if(!isPlayer2){
+                OpenPanel();
+                /*if(!isPlayer2){
                     playerNames[0] = namePlayer.text;
                     namePlayer.text = "";
                     playerNameText.text = "Player 2";
+                    PlayerNameTextPanel.text = "Player 2";
                     isPlayer2 = true;
                 } else {
                     if(playerNames[0] == namePlayer.text){
@@ -73,18 +82,12 @@
 
                     }
 
-                }
-                
-
-                
+                }*/
             }
-            
-            
-           
-            // Récupérer le texte entré lorsque l'utilisateur appuie sur un bouton de soumission
-            //inputText  = namePlayer.text;
-            //dataBase.AddScore(inputText, 1);
-           
-            //Debug.Log("Texte soumis : " + inputText);
+        }
+        public void OpenPanel(){
+            panelOpener.OpenPanel();
+            eventSystem.firstSelectedGameObject = panelControl;
+
         }
     }

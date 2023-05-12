@@ -1,9 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PanelOpener : MonoBehaviour
 {
     public GameObject panel;
+ 
+
+   
+
+    private void Start()
+    {
+      
+       
+   
+    }
 
     public void OpenPanel()
     {
@@ -13,6 +24,9 @@ public class PanelOpener : MonoBehaviour
 
     public void ClosePanel()
     {
+       
         panel.SetActive(false);
     }
+
+   
 }

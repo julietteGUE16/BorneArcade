@@ -8,6 +8,12 @@ public class dataBase : MonoBehaviour
  private string dbName = "URI=file:BorneArcade.db";
  gameSet gameSet;
 
+    int idPlayer=0;
+    string namePlayer="";
+    float speedPlayer=0f;
+    float speedRotationPlayer=0f;
+    float powerFire=0f;
+    float delayFire=0f;
  
  
 
@@ -90,6 +96,7 @@ public void UpdatePlayer(int playerId, float newSpeedPlayer, float newSpeedRotat
 
 public void FindPlayer(string playerName, bool isPlayer2)
 {
+    
     using (var connection = new SqliteConnection(dbName))
     {
         connection.Open();
@@ -102,23 +109,17 @@ public void FindPlayer(string playerName, bool isPlayer2)
             {
                 if (reader.Read())
                 {
-                    if(!isPlayer2){
-                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
-                        gameSet.idPlayer1 = reader.GetInt32(0);
-                        gameSet.namePlayer1 = reader.GetString(1);
-                        gameSet.speedPlayer1 = reader.GetFloat(2);
-                        gameSet.speedRotationPlayer1 = reader.GetFloat(3);
-                        gameSet.powerFire1 = reader.GetFloat(4);
-                        gameSet.delayFire1 = reader.GetFloat(5);
-                    }else {
-                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
-                        gameSet.idPlayer2 = reader.GetInt32(0);
-                        gameSet.namePlayer2 = reader.GetString(1);
-                        gameSet.speedPlayer2 = reader.GetFloat(2);
-                        gameSet.speedRotationPlayer2 = reader.GetFloat(3);
-                        gameSet.powerFire2 = reader.GetFloat(4);
-                        gameSet.delayFire2 = reader.GetFloat(5);
-                    }
+                     idPlayer = reader.GetInt32(0);
+                     namePlayer = reader.GetString(1);
+                     speedPlayer = reader.GetFloat(2);
+                     speedRotationPlayer = reader.GetFloat(3);
+                     powerFire = reader.GetFloat(4);
+                     delayFire = reader.GetFloat(5);
+
+
+
+
+                    
                     
 
                  
@@ -127,8 +128,28 @@ public void FindPlayer(string playerName, bool isPlayer2)
                 }
                 else
                 {
+                    idPlayer = -1;
                     // Le joueur n'existe pas encore, appeler la fonction AddPlayer pour l'ajouter à la base de données
-                    AddPlayer(playerName, 0.1f, 0.2f, 0.2f, 0.2f);
+                    AddPlayer(playerName, 1f, 1f, 1f, 1f);
+                }
+
+                if(idPlayer != -1){
+                    if(!isPlayer2){
+                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
+                        gameSet.idPlayer1 = idPlayer;
+                        gameSet.namePlayer1 = namePlayer;
+                        gameSet.speedPlayer1 = speedPlayer;
+                        gameSet.speedRotationPlayer1 = speedRotationPlayer;
+                        gameSet.powerFire1 = powerFire;
+                    }else {
+                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
+                        gameSet.idPlayer2 = idPlayer;
+                        gameSet.namePlayer2 = namePlayer;
+                        gameSet.speedPlayer2 = speedPlayer;
+                        gameSet.speedRotationPlayer2 = speedRotationPlayer;
+                        gameSet.powerFire2 = powerFire;
+                        
+                    }
                 }
             }
         }

@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.2
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1701,10 +1701,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1983249328}
   m_HandleRect: {fileID: 1370092139}
   m_Direction: 0
-  m_MinValue: 0.2
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MinValue: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1722,8 +1722,8 @@ GameObject:
   - component: {fileID: 530213546}
   - component: {fileID: 530213550}
   - component: {fileID: 530213551}
-  - component: {fileID: 530213549}
   - component: {fileID: 530213552}
+  - component: {fileID: 530213553}
   m_Layer: 5
   m_Name: valider
   m_TagString: Untagged
@@ -1796,9 +1796,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 530213549}
-        m_TargetAssemblyTypeName: getData, Assembly-CSharp
-        m_MethodName: SubmitInput
+      - m_Target: {fileID: 530213552}
+        m_TargetAssemblyTypeName: PanelOpener, Assembly-CSharp
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1846,27 +1846,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530213544}
   m_CullTransparentMesh: 1
---- !u!114 &530213549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530213544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c81f8312336f44d823ae32ebd45d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  namePlayer: {fileID: 1870010602}
-  playerNames:
-  - 
-  - 
-  isPlayer2: 0
-  playerNameText: {fileID: 287842064}
-  PlayerNameTextPanel: {fileID: 1463880115}
-  sameName: {fileID: 394078624}
-  panelControl: {fileID: 1493104596}
 --- !u!114 &530213550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,6 +1883,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1027151698}
+--- !u!114 &530213553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530213544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81f8312336f44d823ae32ebd45d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlayer: {fileID: 1870010602}
+  playerNames:
+  - 
+  - 
+  isPlayer2: 0
+  playerNameText: {fileID: 287842064}
+  PlayerNameTextPanel: {fileID: 1463880115}
+  sameName: {fileID: 394078624}
+  panelControl: {fileID: 1493104596}
 --- !u!1 &553701686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2958,7 +2958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -3605,9 +3605,9 @@ MonoBehaviour:
   m_FillRect: {fileID: 1717764208}
   m_HandleRect: {fileID: 1967082660}
   m_Direction: 0
-  m_MinValue: 0.2
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MinValue: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3832,7 +3832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.2
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -4529,7 +4529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.1
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -4690,9 +4690,9 @@ MonoBehaviour:
   m_FillRect: {fileID: 2101656088}
   m_HandleRect: {fileID: 1199210601}
   m_Direction: 0
-  m_MinValue: 0.2
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MinValue: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4803,6 +4803,7 @@ GameObject:
   - component: {fileID: 1027151699}
   - component: {fileID: 1027151702}
   - component: {fileID: 1027151701}
+  - component: {fileID: 1027151703}
   m_Layer: 5
   m_Name: SettingsPlayers
   m_TagString: Untagged
@@ -4886,6 +4887,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027151698}
   m_CullTransparentMesh: 1
+--- !u!114 &1027151703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027151698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933467878c1791b4ba19d4cc6230633c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorSpeedPlayer: {fileID: 1493104596}
+  CursorRotationSpeedPlayer: {fileID: 978498433}
+  CursorPowerFirePlayer: {fileID: 800587659}
+  CursorDelayFirePlayer: {fileID: 516679837}
+  textSpeedPlayer: {fileID: 2108868903}
+  textRotationSpeedPlayer: {fileID: 1645121537}
+  textPowerFirePlayer: {fileID: 1155851662}
+  textDelayFirePlayer: {fileID: 1729449289}
+  panelOpen: 1
 --- !u!1 &1116677109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5887,7 +5909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -6495,9 +6517,9 @@ MonoBehaviour:
   m_FillRect: {fileID: 883737048}
   m_HandleRect: {fileID: 2062872764}
   m_Direction: 0
-  m_MinValue: 0.1
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MinValue: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7953,7 +7975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -8044,6 +8066,7 @@ GameObject:
   - component: {fileID: 1803194163}
   - component: {fileID: 1803194161}
   - component: {fileID: 1803194159}
+  - component: {fileID: 1803194166}
   m_Layer: 5
   m_Name: validerPanel
   m_TagString: Untagged
@@ -8141,13 +8164,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1803194157}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PanelOpener, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8191,6 +8214,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803194157}
   m_CullTransparentMesh: 1
+--- !u!114 &1803194166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803194157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81f8312336f44d823ae32ebd45d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlayer: {fileID: 1870010602}
+  playerNames:
+  - 
+  - 
+  isPlayer2: 0
+  playerNameText: {fileID: 287842064}
+  PlayerNameTextPanel: {fileID: 1463880115}
+  sameName: {fileID: 394078624}
+  panelControl: {fileID: 1493104596}
 --- !u!1 &1825576270
 GameObject:
   m_ObjectHideFlags: 0
@@ -10308,7 +10352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.2
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

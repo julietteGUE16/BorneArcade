@@ -18,6 +18,8 @@
         PanelOpener panelOpener;
         EventSystem eventSystem;
         public GameObject panelControl;
+        ControlCurseur controlCurseur;
+        gameSet gameSet;
         
 
         private void Start()
@@ -25,11 +27,13 @@
            eventSystem = EventSystem.current;
             panelOpener = GameObject.FindObjectOfType<PanelOpener>();
             menuController = GameObject.FindObjectOfType<menuController>();
+            gameSet = GameObject.FindObjectOfType<gameSet>();
             // Ajouter un gestionnaire d'événements pour détecter les changements de texte
             dataBase = GameObject.FindObjectOfType<dataBase>();
             namePlayer = GameObject.Find("name").GetComponent<TextMeshProUGUI>();
             sameName = GameObject.Find("sameName").GetComponent<TextMeshProUGUI>();
             sameName.enabled = false;
+            controlCurseur = GameObject.FindObjectOfType<ControlCurseur>();
 
 
             if (namePlayer != null)
@@ -64,7 +68,8 @@
 
                 dataBase.FindPlayer(namePlayer.text, isPlayer2);
 
-                panelOpener.OpenPanel(namePlayer.text);
+                panelOpener.OpenPanel();
+                controlCurseur.panelOpen = true;
 
 
                 //eventSystem.firstSelectedGameObject = panelControl;
@@ -95,11 +100,16 @@
                 }*/
             }
         }
-        public void ValiderPanel(){
+         public void ValiderPanel(){
+            controlCurseur.panelOpen = false;
+           panelOpener.ClosePanel();
 
-            panelOpener.ClosePanel();
-
-            dataBase.UpdatePlayer();
+            if(!isPlayer2){
+                dataBase.UpdatePlayer(gameSet.idPlayer1, controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value);
+            } else {
+                dataBase.UpdatePlayer(gameSet.idPlayer2, controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value);
+            }
+            
 
 
 

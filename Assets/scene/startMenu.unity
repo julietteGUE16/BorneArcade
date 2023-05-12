@@ -1051,16 +1051,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf33abce06cdecb468e613215c623782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPartie: 0
+  scorePlayer1: 0
+  scorePlayer2: 0
+  idPlayer1: 0
+  idPlayer2: 0
+  namePlayer1: 
+  namePlayer2: 
   speedPlayer1: 0
   speedRotationPlayer1: 0
   powerFire1: 0
   delayFire1: 0
-  speedFire1: 0
   speedPlayer2: 0
   speedRotationPlayer2: 0
   powerFire2: 0
   delayFire2: 0
-  speedFire2: 0
+  playerNumber: 0
 --- !u!4 &1717395878
 Transform:
   m_ObjectHideFlags: 0

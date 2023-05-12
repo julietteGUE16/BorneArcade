@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 
@@ -61,6 +62,8 @@ public class Player : MonoBehaviour
 
     public float score = 0f;
 
+    EventSystem eventSystem;
+
    
 
     Joystick j2;
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eventSystem = EventSystem.current;
          font.enabled = false;
         finish.enabled = false;
         winner.enabled = false;
@@ -131,6 +135,14 @@ public class Player : MonoBehaviour
          stickPosition = j2.stick.ReadValue();
     
         rb.velocity = stickPosition * speed;
+
+       /* if(j2.trigger.value == 1){
+
+            //playerMouvement
+            Debug.Log("tir");
+           Debug.Log("button : "+ eventSystem.currentSelectedGameObject.name);//.onClick.Invoke();
+        }*/
+           
             
         }else if(g2 != null){
            

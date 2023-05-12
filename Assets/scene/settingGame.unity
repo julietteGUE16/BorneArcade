@@ -4181,7 +4181,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Z
+          m_StringArgument: X
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &867008273
@@ -4909,6 +4909,7 @@ MonoBehaviour:
   textPowerFirePlayer: {fileID: 1155851662}
   textDelayFirePlayer: {fileID: 1729449289}
   panelOpen: 1
+  firstTime: 1
 --- !u!1 &1116677109
 GameObject:
   m_ObjectHideFlags: 0

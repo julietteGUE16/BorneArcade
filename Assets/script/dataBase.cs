@@ -72,14 +72,14 @@ public void AddPlayer(string playerName, float speedPlayer, float speedRotationP
              
                     if(!isPlayer2){
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
-                        gameSet.idPlayer1 = idPlayer;
+                        gameSet.idPlayer1 = playerID;
                        /* gameSet.namePlayer1 = namePlayer;
                         gameSet.speedPlayer1 = speedPlayer;
                         gameSet.speedRotationPlayer1 = speedRotationPlayer;
                         gameSet.powerFire1 = powerFire;*/
                     }else {
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
-                        gameSet.idPlayer2 = idPlayer;
+                        gameSet.idPlayer2 = playerID;
                         /*gameSet.namePlayer2 = namePlayer;
                         gameSet.speedPlayer2 = speedPlayer;
                         gameSet.speedRotationPlayer2 = speedRotationPlayer;
@@ -162,6 +162,7 @@ public void FindPlayer(string playerName, bool isPlayer2)
                         gameSet.speedPlayer1 = speedPlayer;
                         gameSet.speedRotationPlayer1 = speedRotationPlayer;
                         gameSet.powerFire1 = powerFire;
+                        gameSet.delayFire1 = delayFire;
                     }else {
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
                         gameSet.idPlayer2 = idPlayer;
@@ -169,6 +170,7 @@ public void FindPlayer(string playerName, bool isPlayer2)
                         gameSet.speedPlayer2 = speedPlayer;
                         gameSet.speedRotationPlayer2 = speedRotationPlayer;
                         gameSet.powerFire2 = powerFire;
+                        gameSet.delayFire2 = delayFire;
                         
                     }
                 }

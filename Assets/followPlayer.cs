@@ -11,7 +11,7 @@ public class followPlayer : MonoBehaviour
   
    
     
-    public TextMeshPro name;
+    public new TextMeshPro name;
     // Start is called before the first frame update
     void Start()
     {

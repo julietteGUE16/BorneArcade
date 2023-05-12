@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class menuController : MonoBehaviour 
 {
-    Joystick j2=null;
+    
     ButtonHoverDetector buttonHoverDetector;
     ControllerKeyboard myKeyboard;
     GameObject lastHighlightedButton;

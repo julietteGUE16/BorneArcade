@@ -11,8 +11,7 @@ public class ControllerKeyboard : MonoBehaviour
     public TextMeshProUGUI setNamePlayerText;
     public TextMeshProUGUI maxCharacters;
     TextMeshProUGUI playerNumber;
-    bool isPlayer2 = false;
-    
+   
 
     // Start is called before the first frame update
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class MyButton : MonoBehaviour, IPointerClickHandler
 {
-    string name;
+    new string name;
     public void OnPointerClick(PointerEventData eventData)
     {
         // Code à exécuter lors du clic sur le bouton

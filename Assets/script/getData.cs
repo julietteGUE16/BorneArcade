@@ -87,7 +87,8 @@
         }
         public void OpenPanel(){
             panelOpener.OpenPanel();
-            eventSystem.firstSelectedGameObject = panelControl;
+            //eventSystem.firstSelectedGameObject = panelControl;
+            eventSystem.SetSelectedGameObject(panelControl);
 
         }
     }

@@ -66,7 +66,7 @@
                         playerNames[1] = namePlayer.text;
                     namePlayer.text = "";
                     for(int i = 0; i < playerNames.Length; i++){
-                    Debug.Log("Player "+i+" : "+playerNames[i]);
+                    //Debug.Log("Player "+i+" : "+playerNames[i]);
                     }
                     
                     menuController.loadAllScene("game1");

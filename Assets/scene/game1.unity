@@ -2469,7 +2469,7 @@ MonoBehaviour:
   life3: {fileID: 2116919404}
   life4: {fileID: 1095238287}
   life5: {fileID: 1787214759}
-  lifeLose: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
+  lifeLose: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   isEnd: 0
   playerName: p1
   speed: 30

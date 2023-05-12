@@ -57,7 +57,7 @@ public class menuController : MonoBehaviour
     public void goBack(string sceneName)
     {
 
-         if(getData.isPlayer2 ){
+         if(getData.isPlayer2){
                 getData.isPlayer2 = false;
                 getData.namePlayer.text = getData.playerNames[0];
                 getData.playerNameText.text = "Player 1";
@@ -75,7 +75,6 @@ public class menuController : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         
         //yield return new WaitForSeconds(0.5f);
-        
     }
 
     public void Quit ()

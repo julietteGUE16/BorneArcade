@@ -48,7 +48,7 @@ public void CreateDB(){
     }
 }
 
-public void AddPlayer(string playerName, float speedPlayer, float speedRotationPlayer, float powerFire, float delayFire)
+public void AddPlayer(string playerName, float speedPlayer, float speedRotationPlayer, float powerFire, float delayFire , bool isPlayer2)
 {
     using (var connection = new SqliteConnection(dbName))
     {
@@ -63,9 +63,30 @@ public void AddPlayer(string playerName, float speedPlayer, float speedRotationP
             // Incrémenter l'ID du joueur en fonction de la taille de la table
             int playerID = playerCount + 1;
 
+            
+
             // Insérer les données du joueur dans la table "Player"
             command.CommandText = "INSERT INTO Player (idPlayer, name, speedPlayer, speedRotationPlayer, powerFire, delayFire) VALUES (" + playerID + ", '" + playerName + "', " + speedPlayer + ", " + speedRotationPlayer + ", " + powerFire + ", " + delayFire  + ");";
             command.ExecuteNonQuery();
+
+             
+                    if(!isPlayer2){
+                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
+                        gameSet.idPlayer1 = idPlayer;
+                       /* gameSet.namePlayer1 = namePlayer;
+                        gameSet.speedPlayer1 = speedPlayer;
+                        gameSet.speedRotationPlayer1 = speedRotationPlayer;
+                        gameSet.powerFire1 = powerFire;*/
+                    }else {
+                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
+                        gameSet.idPlayer2 = idPlayer;
+                        /*gameSet.namePlayer2 = namePlayer;
+                        gameSet.speedPlayer2 = speedPlayer;
+                        gameSet.speedRotationPlayer2 = speedRotationPlayer;
+                        gameSet.powerFire2 = powerFire;*/
+                        
+                    }
+                
         }
 
         connection.Close();
@@ -130,7 +151,7 @@ public void FindPlayer(string playerName, bool isPlayer2)
                 {
                     idPlayer = -1;
                     // Le joueur n'existe pas encore, appeler la fonction AddPlayer pour l'ajouter à la base de données
-                    AddPlayer(playerName, 1f, 1f, 1f, 1f);
+                    AddPlayer(playerName, 1f, 1f, 1f, 1f, isPlayer2);
                 }
 
                 if(idPlayer != -1){

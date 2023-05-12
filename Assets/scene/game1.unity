@@ -289,6 +289,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 93778377}
+  player1: {fileID: 1891284429}
+  player2: {fileID: 921847756}
+  player1Object: {fileID: 1210726533}
+  player2Object: {fileID: 1083694010}
 --- !u!1 &102570433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2021,7 @@ GameObject:
   - component: {fileID: 921847757}
   - component: {fileID: 921847756}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: pseudo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2040,7 +2044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8902598, y: 0.97}
   m_AnchorMax: {x: 0.8902598, y: 0.97}
-  m_AnchoredPosition: {x: -8, y: 0}
+  m_AnchoredPosition: {x: -68, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &921847756
@@ -2097,7 +2101,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4164,7 +4168,7 @@ GameObject:
   - component: {fileID: 1891284430}
   - component: {fileID: 1891284429}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: pseudo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4187,7 +4191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10041995, y: 0.96300006}
   m_AnchorMax: {x: 0.10041995, y: 0.96300006}
-  m_AnchoredPosition: {x: 6, y: -1.3999939}
+  m_AnchoredPosition: {x: -54, y: -1.3999939}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891284429
@@ -4244,7 +4248,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

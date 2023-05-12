@@ -700,7 +700,7 @@ MonoBehaviour:
   text: {fileID: 1278128589}
   colorSelected: {r: 0, g: 1, b: 0.06005001, a: 1}
   colorUnselected: {r: 0, g: 0.2924528, b: 0.0026118034, a: 1}
-  blinkInterval: 2
+  blinkInterval: 1
 --- !u!114 &1278128589
 MonoBehaviour:
   m_ObjectHideFlags: 0

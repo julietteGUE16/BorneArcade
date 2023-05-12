@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     //choisi dans les paramètre et si il est max grosses balles mais grand pause entre les tires
     public float delayFire=0.2f;
     //de 1 à 5
-    public int powerFire=1;
+    public float powerFire=1f;
     //
     public float speedFire=10f;
 
@@ -71,6 +71,24 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+          Debug.Log("player number : "+playerNumber);
+        Debug.Log("playe name :"+playerName);
+      
+       
+        Debug.Log("player speed : "+speed);
+      
+        Debug.Log("player rotationSpeed : "+rotationSpeed);
+        Debug.Log("player delayFire : "+delayFire);
+        Debug.Log("player powerFire : "+powerFire);
+      
+        Debug.Log("player score : "+score);
+        Debug.Log("----------------------");
+
+        speed = speed*10;
+        rotationSpeed = rotationSpeed*600;
+        delayFire = delayFire/10;
+
+
         eventSystem = EventSystem.current;
          font.enabled = false;
         finish.enabled = false;

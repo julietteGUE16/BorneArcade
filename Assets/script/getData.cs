@@ -127,6 +127,7 @@
 
             if(!isPlayer2){
                     playerNames[0] = namePlayer.text;
+                    gameSet.namePlayer1 = namePlayer.text;
                     namePlayer.text = "";
                     playerNameText.text = "Player 2";
                     PlayerNameTextPanel.text = "Player 2";
@@ -134,6 +135,7 @@
                 } else {
                     
                         playerNames[1] = namePlayer.text;
+                         gameSet.namePlayer2 = namePlayer.text;
                     namePlayer.text = "";
                     
                     

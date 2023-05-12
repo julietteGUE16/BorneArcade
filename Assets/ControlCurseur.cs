@@ -83,7 +83,7 @@ public class ControlCurseur : MonoBehaviour
         
     }
 
-    void ResetCursor(){
+    public void ResetCursor(){
         cursorSpeedPlayer.GetComponent<Slider>().value = 0;
         CursorRotationSpeedPlayer.GetComponent<Slider>().value = 0;
         CursorPowerFirePlayer.GetComponent<Slider>().value = 0;

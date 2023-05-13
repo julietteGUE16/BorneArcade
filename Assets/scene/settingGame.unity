@@ -1903,7 +1903,7 @@ MonoBehaviour:
   playerNameText: {fileID: 287842064}
   PlayerNameTextPanel: {fileID: 1463880115}
   sameName: {fileID: 394078624}
-  panelControl: {fileID: 1493104596}
+  panelControl: {fileID: 1803194157}
   menuControl: {fileID: 530213544}
 --- !u!1 &553701686
 GameObject:

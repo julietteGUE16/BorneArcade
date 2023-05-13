@@ -32,7 +32,10 @@ public class tir : MonoBehaviour
             Destroy(gameObject);
         }else if(collision.gameObject.tag == "Player"){
             Debug.Log("player "+collision.gameObject.GetComponent<Player>().playerNumber +" : "+  collision.gameObject.GetComponent<Player>().life);
+            Debug.Log("hit");
             collision.gameObject.GetComponent<Player>().life -= 1;
+            collision.gameObject.GetComponent<Player>().spriteRendererLooseLife.GetComponent<SpriteRenderer>().enabled = true;
+            collision.gameObject.GetComponent<Player>().StartCoroutine(collision.gameObject.GetComponent<Player>().waitLooseLife());
             Destroy(gameObject);
         }
     }

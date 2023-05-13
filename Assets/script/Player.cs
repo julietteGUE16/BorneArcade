@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
    public TextMeshProUGUI namePlayerWinner;
    public TextMeshProUGUI namePlayerLooser;
    public Image font;
+   public GameObject spriteRendererLooseLife;
+    
    
     public weapon weapon;
     private Rigidbody2D rb;
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
     
 
 
-
+    public gameSet gameSet;
     public string playerName="";
     public float speed=10f;
     public float rotationSpeed = 5f;
@@ -75,20 +77,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameSet = GameObject.FindObjectOfType<gameSet>();
+        spriteRendererLooseLife.GetComponent<SpriteRenderer>().enabled = false;
         startRound = GameObject.FindObjectOfType<startRound>();
-          Debug.Log("player number : "+playerNumber);
-        Debug.Log("playe name :"+playerName);
-      
-       
-        Debug.Log("player speed : "+speed);
-      
-        Debug.Log("player rotationSpeed : "+rotationSpeed);
-        Debug.Log("player delayFire : "+delayFire);
-        Debug.Log("player powerFire : "+powerFire);
-      
-        Debug.Log("player score : "+score);
-        Debug.Log("----------------------");
+            menuController =GameObject.FindObjectOfType<menuController>();
+
 
         speed = speed*10;
         rotationSpeed = rotationSpeed*600;
@@ -109,18 +102,24 @@ public class Player : MonoBehaviour
       
         //Debug.Log(" device 1 :  "+devices[playerNumber].name);
         //Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
-        if(devices.Count>1){
-          if(devices[playerNumber].name.Contains("XInputControllerWindows")){
-           g2 = devices[playerNumber] as Gamepad;
+        if(playerNumber == 0){
+            Debug.Log(" player j1"+gameSet.j1 );
+            if(gameSet.j1 != null){
+                j2 = gameSet.j1;
+            }else if(gameSet.g1 != null){
+                g2 = gameSet.g1;
+            }
+        }else if(playerNumber == 1){
+            if(gameSet.j2 != null){
+                j2 = gameSet.j2;
+            }else if(gameSet.g2 != null){
+                g2 = gameSet.g2;
+            }
+        }
+             
+           
+
       
-           //TODO : changer  
-        }else if(devices[playerNumber].name.Contains("joystick")){
-            j2 = devices[playerNumber] as Joystick;
-        }
-        }
-
-        menuController =GameObject.FindObjectOfType<menuController>();
-
         //Debug.Log(" device 4 :  "+devices[0].name);
         //Debug.Log(" device 5 :  "+devices[1].name);
       
@@ -200,7 +199,7 @@ public class Player : MonoBehaviour
         }
         
         else {
-         Debug.Log("j2 et g2 null");
+         //Debug.Log("j2 et g2 null");
         }
 
           Vector2 movementDirection = stickPosition.normalized;
@@ -261,6 +260,15 @@ public class Player : MonoBehaviour
 
     public int getScore(){
         return 0;
+
+    }
+
+
+    public IEnumerator waitLooseLife(){
+        Debug.Log("waitLooseLife");
+        yield return new WaitForSeconds(0.03f);
+         spriteRendererLooseLife.GetComponent<SpriteRenderer>().enabled = false;
+
     }
 
      

@@ -11,6 +11,7 @@ public class gameSet : MonoBehaviour
 {
     
     
+    
 
     
     public int idPartie=-1;
@@ -34,10 +35,10 @@ public class gameSet : MonoBehaviour
     public float delayFire2=0.2f;
 
     bool canClick = true;
-    Joystick j2=null;
-    Gamepad g2=null;
-    Joystick j1=null;
-    Gamepad g1=null;
+    public Joystick j2=null;
+    public Gamepad g2=null;
+    public Joystick j1=null;
+    public Gamepad g1=null;
 
     public bool firstManetteFound = false;
 
@@ -60,30 +61,31 @@ public class gameSet : MonoBehaviour
         //Debug.Log(" device 1 :  "+devices[playerNumber].name);
         //Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
         for(int i=0;i<devices.Count;i++){
+
             Debug.Log(" device "+i+" :  "+devices[i].name);
+           //test1.text += "\n"+" device "+i+" :  "+devices[i].name;
 
-             if(devices[i].name.Contains("XInputControllerWindows")){
-             g2 = devices[i] as Gamepad;
-           
-        }else  if(devices[playerNumber].name.Contains("joystick")) {
-            j2 = devices[i] as Joystick;
+            if(devices[i].name.Contains("XInputControllerWindows") || devices[i].name.Contains("XInputControllerWindows1")){
+                if(firstManetteFound == false){
+                    firstManetteFound = true;
+                    g1 = devices[i] as Gamepad;
+                }else {
+                    g2 = devices[i] as Gamepad;
+                }
+            
+            }else  if(devices[i].name.Contains("joystick")) {
+                if(firstManetteFound == false){
+                    firstManetteFound = true;
+                    j1 = devices[i] as Joystick;
+                }else {
+                    j2 = devices[i] as Joystick;
+                }
+            }
+
         }
 
-        }
 
 
-
-
-        if(devices.Count>1){
-          if(devices[0].name.Contains("XInputControllerWindows")){
-           g2 = devices[0] as Gamepad;
-           
-        }else {
-            j2 = devices[0] as Joystick;
-        }
-
-        
-        }
 
          
 
@@ -128,7 +130,7 @@ public class gameSet : MonoBehaviour
         }
         
         else {
-         Debug.Log("j2 et g2 null");
+         //Debug.Log("j2 et g2 null");
         }
         
     }

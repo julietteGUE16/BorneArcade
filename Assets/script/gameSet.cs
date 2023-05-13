@@ -6,14 +6,10 @@ using UnityEngine.InputSystem.Controls;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class gameSet : MonoBehaviour
 {
-    
-    
-    
-
-    
     public int idPartie=-1;
     public int scorePlayer1=0;
     public int scorePlayer2=0;
@@ -28,7 +24,6 @@ public class gameSet : MonoBehaviour
     public float powerFire1=0.2f;
     public float delayFire1=0.2f;
     
-
     public float speedPlayer2=0.1f;
     public float speedRotationPlayer2=0.2f;
     public float powerFire2=0.2f;
@@ -44,26 +39,29 @@ public class gameSet : MonoBehaviour
 
     EventSystem eventSystem;
 
+    
+
     public int playerNumber;
  
-    // Start is called before the first frame update
+   
     private void Awake()
     {
-        // Empêcher la destruction de l'objet lors du changement de scène
+        
         DontDestroyOnLoad(gameObject);
     }
         
     void Start()
     {
         eventSystem = EventSystem.current;
-         var devices = InputSystem.devices;
+        var devices = InputSystem.devices;
+
+         
       
         //Debug.Log(" device 1 :  "+devices[playerNumber].name);
         //Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
         for(int i=0;i<devices.Count;i++){
 
-            Debug.Log(" device "+i+" :  "+devices[i].name);
-           //test1.text += "\n"+" device "+i+" :  "+devices[i].name;
+           
 
             if(devices[i].name.Contains("XInputControllerWindows") || devices[i].name.Contains("XInputControllerWindows1")){
                 if(firstManetteFound == false){
@@ -110,28 +108,17 @@ public class gameSet : MonoBehaviour
             Debug.Log("j2 = "+ j1.trigger.value);
         if(j1.trigger.value == 1){
             if(canClick){
-            canClick = false;
-            StartCoroutine(waitForClick());
-
-
-            //playerMouvement
-            Debug.Log("tir");
-           //Debug.Log("button : "+ eventSystem.currentSelectedGameObject.name);//.onClick.Invoke();
-           eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+                if(SceneManager.GetActiveScene().name != "game1"){
+                    canClick = false;
+                    StartCoroutine(waitForClick());
+                    eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+                }
             }
         }
            
-            
-        }else if(g2 != null){
-           
-         
-        
-        
+  
         }
         
-        else {
-         //Debug.Log("j2 et g2 null");
-        }
         
     }
 

@@ -112,7 +112,6 @@ public class startRound : MonoBehaviour
             namePlayerLooserScore.enabled = true;
 
 
-           
             dataBase.AddGame(gameSet.idPlayer1,gameSet.idPlayer2,gameSet.scorePlayer1,gameSet.scorePlayer2);
         }
 

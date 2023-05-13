@@ -20,11 +20,8 @@ public class menuController : MonoBehaviour
     {
         getData = FindObjectOfType<getData>();
         myButton = FindObjectOfType<MyButton>();
-         var devices = InputSystem.devices;
-         //j2 = devices[1] as Joystick;
-         //Debug.Log("j2 : "+j2.name);
-         buttonHoverDetector = FindObjectOfType<ButtonHoverDetector>();
-            myKeyboard =    FindObjectOfType<ControllerKeyboard>();
+        buttonHoverDetector = FindObjectOfType<ButtonHoverDetector>();
+        myKeyboard =    FindObjectOfType<ControllerKeyboard>();
             
         
     }
@@ -32,25 +29,7 @@ public class menuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     /*if(j2 != null){
-       
-      if(j2.trigger.ReadValue() == 1){
-                //Debug.Log("j2 : " + j2.trigger.ReadValue());
-                
-           
-                if (buttonHoverDetector != null)
-                {
-                    
-                    // Utilisez ici la fonction pour réagir au bouton en surbrillance
-                    Debug.Log("buttonHoverDetector : " +    buttonHoverDetector.getButtonName());
-                    buttonHoverDetector.OnPointerEnter(null);
-                    //myKeyboard.setletter(buttonHoverDetector.getButtonName());
-                }
-            }else {
-
-
-            }
-     }*/
+    
         
     }
 
@@ -75,17 +54,14 @@ public class menuController : MonoBehaviour
         
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         
-        //yield return new WaitForSeconds(0.5f);
+       
     }
 
     public void Quit ()
     {
-        if(Application.isEditor){
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-        else{
+        
         Application.Quit();
-        }
+        
     }
 
     

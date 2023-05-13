@@ -39,6 +39,8 @@ public class gameSet : MonoBehaviour
     Joystick j1=null;
     Gamepad g1=null;
 
+    public bool firstManetteFound = false;
+
     EventSystem eventSystem;
 
     public int playerNumber;
@@ -57,6 +59,21 @@ public class gameSet : MonoBehaviour
       
         //Debug.Log(" device 1 :  "+devices[playerNumber].name);
         //Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
+        for(int i=0;i<devices.Count;i++){
+            Debug.Log(" device "+i+" :  "+devices[i].name);
+
+             if(devices[i].name.Contains("XInputControllerWindows")){
+             g2 = devices[i] as Gamepad;
+           
+        }else  if(devices[playerNumber].name.Contains("joystick")) {
+            j2 = devices[i] as Joystick;
+        }
+
+        }
+
+
+
+
         if(devices.Count>1){
           if(devices[0].name.Contains("XInputControllerWindows")){
            g2 = devices[0] as Gamepad;
@@ -68,16 +85,7 @@ public class gameSet : MonoBehaviour
         
         }
 
-         if(devices.Count>1){
-          if(devices[1].name.Contains("XInputControllerWindows")){
-           g1 = devices[1] as Gamepad;
-           //Debug.Log("g1 : "+g2.name);
-        }else {
-            j1 = devices[1] as Joystick;
-        }
-        
-        
-        }
+         
 
         Debug.Log("j1 = "+ j1);
         Debug.Log("g1 = "+ g1);

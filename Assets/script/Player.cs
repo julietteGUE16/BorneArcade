@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     public int life=5;
     //choisi dans les paramètre et si il est max grosses balles mais grand pause entre les tires
     public float delayFire=0.2f;
-    //de 1 à 5
+   
     public float powerFire=1f;
     //
     public float speedFire=10f;
@@ -64,6 +64,10 @@ public class Player : MonoBehaviour
 
     EventSystem eventSystem;
 
+    public bool canFire = true;
+
+    startRound startRound;
+
    
 
     Joystick j2;
@@ -71,6 +75,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        startRound = GameObject.FindObjectOfType<startRound>();
           Debug.Log("player number : "+playerNumber);
         Debug.Log("playe name :"+playerName);
       
@@ -87,6 +93,7 @@ public class Player : MonoBehaviour
         speed = speed*10;
         rotationSpeed = rotationSpeed*600;
         delayFire = delayFire/10;
+        powerFire = powerFire/2;
 
 
         eventSystem = EventSystem.current;
@@ -105,8 +112,9 @@ public class Player : MonoBehaviour
         if(devices.Count>1){
           if(devices[playerNumber].name.Contains("XInputControllerWindows")){
            g2 = devices[playerNumber] as Gamepad;
-           //Debug.Log("g1 : "+g2.name);
-        }else {
+      
+           //TODO : changer  
+        }else if(devices[playerNumber].name.Contains("joystick")){
             j2 = devices[playerNumber] as Joystick;
         }
         }
@@ -139,6 +147,7 @@ public class Player : MonoBehaviour
             if(!isEnd){
                 isEnd = true;
                 life1.color = lifeLose;
+                startRound.isEnd = true;
                 StartCoroutine(EndGame());
             }
          
@@ -178,10 +187,13 @@ public class Player : MonoBehaviour
         if(g2.buttonSouth.wasPressedThisFrame){
 
             //playerMouvement
+            if(canFire){
             Debug.Log("tir");
             
             weapon.playerMovement = lastMovement.normalized;
-            weapon.EffectuerTir();
+            weapon.EffectuerTir(powerFire);
+            StartCoroutine(FireRate());
+            }
         }
         
         
@@ -237,6 +249,18 @@ public class Player : MonoBehaviour
         menuController.loadAllScene("endGame");   // Attendre 5 secondes
         
        
+    }
+
+    public IEnumerator FireRate()
+    {
+        canFire = false;
+        yield return new WaitForSeconds(delayFire);
+        canFire = true;
+    }
+
+
+    public int getScore(){
+        return 0;
     }
 
      

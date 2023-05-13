@@ -21,12 +21,13 @@ public class weapon : MonoBehaviour
         
     }
 
-    public void EffectuerTir()
+    public void EffectuerTir(float scale)
     {
         // Créer le projectile
         
 
          projectile = Instantiate(projectilePrefab, spawn.position, spawn.rotation);
+         projectile.transform.localScale = new Vector3(scale, scale, scale);
         
 
         projectilePrefab.GetComponent<tir>().mouvement = playerMovement;

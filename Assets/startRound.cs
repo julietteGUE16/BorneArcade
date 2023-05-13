@@ -12,6 +12,8 @@ public class startRound : MonoBehaviour
 
     public GameObject player1Object;
     public GameObject player2Object;
+
+    public bool isEnd = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class startRound : MonoBehaviour
         player2.text = gameSet.namePlayer2;
         text.enabled   = true;
         StartCoroutine(StartRound()); 
-    
+
         player1Object.GetComponent<Player>().playerName = gameSet.namePlayer1;
         player2Object.GetComponent<Player>().playerName = gameSet.namePlayer2;
 
@@ -47,6 +49,15 @@ public class startRound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(isEnd){
+            isEnd = false;
+            gameSet.scorePlayer1 = player1Object.GetComponent<Player>().getScore();
+            gameSet.scorePlayer2 = player2Object.GetComponent<Player>().getScore();
+
+
+            //TODO ajouter game a la bdd
+        }
         
     }
 

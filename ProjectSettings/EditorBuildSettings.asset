@@ -6,7 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/scene/startMenu.unity
+    guid: 26935ca062d5cc14db0e3c17d9fcc942
+  - enabled: 1
     path: Assets/scene/settingGame.unity
     guid: 7903195629b1ef4478cc44ebeeda5a3d
+  - enabled: 1
+    path: Assets/scene/endGame.unity
+    guid: 60c632193a0e14e4bac8b319e7960f9c
+  - enabled: 1
+    path: Assets/scene/game1.unity
+    guid: 9e9d9ca747c401043800ce9155551e23
+  - enabled: 1
+    path: Assets/scene/rules.unity
+    guid: 6eef207b85dd57047bd599887829edb6
+  - enabled: 1
+    path: Assets/scene/scores.unity
+    guid: 69d31775277715c40999d8e372f102f7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5a7441df276ace04f9e90fb7ecb7a794, type: 2}

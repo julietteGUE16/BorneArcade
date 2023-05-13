@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class startRound : MonoBehaviour
 {
@@ -10,13 +12,40 @@ public class startRound : MonoBehaviour
     public TextMeshProUGUI player2;
     gameSet gameSet;
 
+    public TextMeshProUGUI finish;
+   public TextMeshProUGUI winner;
+   public TextMeshProUGUI looser;
+   public TextMeshProUGUI namePlayerWinner;
+   public TextMeshProUGUI namePlayerLooser;
+   public TextMeshProUGUI namePlayerWinnerScore;
+   public TextMeshProUGUI namePlayerLooserScore;
+   public Image font;
+
+    
+    private bool isRunning = false;
+    private float startTime;
+    private float elapsedTime;
+
     public GameObject player1Object;
     public GameObject player2Object;
 
     public bool isEnd = false;
+
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        font.enabled = false;
+        finish.enabled = false;
+        winner.enabled = false;
+        looser.enabled = false;
+        namePlayerWinner.enabled = false;
+        namePlayerLooser.enabled = false;
+        namePlayerWinnerScore.enabled = false;
+        namePlayerLooserScore.enabled = false;
+         isRunning = true;
+        startTime = Time.time;
         gameSet = GameObject.FindObjectOfType<gameSet>();
         
         player1.text = gameSet.namePlayer1;
@@ -52,13 +81,42 @@ public class startRound : MonoBehaviour
 
         if(isEnd){
             isEnd = false;
-            gameSet.scorePlayer1 = player1Object.GetComponent<Player>().getScore();
-            gameSet.scorePlayer2 = player2Object.GetComponent<Player>().getScore();
+            gameSet.scorePlayer1 = (int)player1Object.GetComponent<Player>().getScore();
+            gameSet.scorePlayer2 = (int)player2Object.GetComponent<Player>().getScore();
+
+            font.enabled = true;
+            winner.enabled = true;
+            looser.enabled = true;
+            finish.enabled = true;
+
+            if(gameSet.scorePlayer1 > gameSet.scorePlayer2){
+                namePlayerWinner.text = gameSet.namePlayer1;
+                namePlayerLooser.text = gameSet.namePlayer2;
+                namePlayerWinnerScore.text = gameSet.scorePlayer1.ToString();
+                namePlayerLooserScore.text = gameSet.scorePlayer2.ToString();
+            }else{
+                namePlayerWinner.text = gameSet.namePlayer2;
+                namePlayerLooser.text = gameSet.namePlayer1;
+                namePlayerWinnerScore.text = gameSet.scorePlayer2.ToString();
+                namePlayerLooserScore.text = gameSet.scorePlayer1.ToString();
+            }
+
+
+
+            namePlayerWinner.enabled = true;
+            namePlayerLooser.enabled = true;
+            namePlayerWinnerScore.enabled = true;
+            namePlayerLooserScore.enabled = true;
 
 
             //TODO ajouter game a la bdd
         }
+
+        if (isRunning)
+        {
+            elapsedTime = Time.time - startTime;
         
+        }
     }
 
     IEnumerator StartRound(){
@@ -66,5 +124,13 @@ public class startRound : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         text.enabled   = false; 
      
+    }
+
+    public float StopAndGetChronometer()
+    {
+        isRunning = false;
+        elapsedTime = Time.time - startTime;
+        //Debug.Log("Temps final : " + elapsedTime.ToString("F2") + " secondes");
+        return elapsedTime;
     }
 }

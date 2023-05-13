@@ -14,12 +14,8 @@ using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
 
-   public TextMeshProUGUI finish;
-   public TextMeshProUGUI winner;
-   public TextMeshProUGUI looser;
-   public TextMeshProUGUI namePlayerWinner;
-   public TextMeshProUGUI namePlayerLooser;
-   public Image font;
+   
+   
    public GameObject spriteRendererLooseLife;
     
    
@@ -46,6 +42,8 @@ public class Player : MonoBehaviour
     public Color lifeLose;
 
     public bool isEnd = false;
+
+   
 
     
 
@@ -77,10 +75,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+     
         gameSet = GameObject.FindObjectOfType<gameSet>();
         spriteRendererLooseLife.GetComponent<SpriteRenderer>().enabled = false;
         startRound = GameObject.FindObjectOfType<startRound>();
-            menuController =GameObject.FindObjectOfType<menuController>();
+        menuController =GameObject.FindObjectOfType<menuController>();
 
 
         speed = speed*10;
@@ -90,12 +89,7 @@ public class Player : MonoBehaviour
 
 
         eventSystem = EventSystem.current;
-         font.enabled = false;
-        finish.enabled = false;
-        winner.enabled = false;
-        looser.enabled = false;
-        namePlayerWinner.enabled = false;
-        namePlayerLooser.enabled = false;
+      
         rb =GetComponent<Rigidbody2D>();
         Time.timeScale = 0.25f;
         var devices = InputSystem.devices;
@@ -236,13 +230,7 @@ public class Player : MonoBehaviour
     {
         //Debug.Log("endGame");
        
-        font.enabled = true;
-        winner.enabled = true;
-        looser.enabled = true;
-        //TODO : calcul du score
-        finish.enabled = true;
-        namePlayerWinner.enabled = true;
-        namePlayerLooser.enabled = true;
+        
         yield return new WaitForSeconds(1.6f);
         
         menuController.loadAllScene("endGame");   // Attendre 5 secondes
@@ -258,10 +246,38 @@ public class Player : MonoBehaviour
     }
 
 
-    public int getScore(){
-        return 0;
+    public float getScore(){
+    float time = startRound.StopAndGetChronometer();
+    float timeScore = 1f / time;
 
+
+    float lifeScore = (float)life +1f;
+    
+    float speedScore = (speed - 10f) / 90f;
+
+    float rotationScore = (6000f - rotationSpeed) / 5400f;
+
+    float delayFireScore = (1f - delayFire) / 0.9f;
+
+    float powerFireScore = (5f - powerFire) / 4.5f;
+
+    float score = timeScore * 0.3f  + speedScore * 0.1f + rotationScore * 0.1f + delayFireScore * 0.1f + powerFireScore * 0.2f;
+
+    score = (score*lifeScore) * 1000f;
+    Debug.Log("------------------------------------------------");
+    Debug.Log("int score of "+playerName+" : "+(int )score);
+     Debug.Log("life of"+playerName+" : "+life);
+     
+     Debug.Log("------------------------------------------------");
+     if(life > 0){
+         score = score + 500f;
+  
+     }
+       return score;
     }
+        
+
+    
 
 
     public IEnumerator waitLooseLife(){

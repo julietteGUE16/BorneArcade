@@ -31,11 +31,14 @@ public class startRound : MonoBehaviour
 
     public bool isEnd = false;
 
+    dataBase dataBase;
+
     
     // Start is called before the first frame update
     void Start()
     {
 
+        dataBase = GameObject.FindObjectOfType<dataBase>();
         font.enabled = false;
         finish.enabled = false;
         winner.enabled = false;
@@ -109,7 +112,8 @@ public class startRound : MonoBehaviour
             namePlayerLooserScore.enabled = true;
 
 
-            //TODO ajouter game a la bdd
+           
+            dataBase.AddGame(gameSet.idPlayer1,gameSet.idPlayer2,gameSet.scorePlayer1,gameSet.scorePlayer2);
         }
 
         if (isRunning)
@@ -122,7 +126,7 @@ public class startRound : MonoBehaviour
     IEnumerator StartRound(){
         
         yield return new WaitForSeconds(0.5f);
-        text.enabled   = false; 
+        text.enabled = false; 
      
     }
 

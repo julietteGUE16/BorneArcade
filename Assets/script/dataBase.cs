@@ -173,5 +173,34 @@ public void FindPlayer(string playerName, bool isPlayer2)
     }
 }
 
+public void AddGame(int idPlayer1, int idPlayer2, int score1, int score2)
+{
+    using (var connection = new SqliteConnection(dbName))
+    {
+        connection.Open();
+
+        using (var command = connection.CreateCommand())
+        {
+            // Récupérer la taille actuelle de la table "Game"
+            command.CommandText = "SELECT COUNT(*) FROM Game;";
+            int gameCount = Convert.ToInt32(command.ExecuteScalar());
+
+            // Incrémenter l'ID de la partie en fonction de la taille de la table
+            int idPartie = gameCount + 1;
+
+            // Insérer les données de la partie dans la table "Game"
+            command.CommandText = "INSERT INTO Game (idPartie, idPlayer1, idPlayer2, score1, score2) VALUES (@idPartie, @idPlayer1, @idPlayer2, @score1, @score2);";
+            command.Parameters.AddWithValue("@idPartie", idPartie);
+            command.Parameters.AddWithValue("@idPlayer1", idPlayer1);
+            command.Parameters.AddWithValue("@idPlayer2", idPlayer2);
+            command.Parameters.AddWithValue("@score1", score1);
+            command.Parameters.AddWithValue("@score2", score2);
+            command.ExecuteNonQuery();
+        }
+
+        connection.Close();
+    }
+}
+
 
 }

@@ -114,6 +114,32 @@ public void UpdatePlayer(int playerId, float newSpeedPlayer, float newSpeedRotat
     }
 }
 
+public string GetPlayerPseudo(int playerId)
+{
+    string playerPseudo = "";
+
+    using (var connection = new SqliteConnection(dbName))
+    {
+        connection.Open();
+
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = "SELECT name FROM Player WHERE idPlayer = " + playerId + ";";
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    playerPseudo = reader.GetString(0);
+                }
+            }
+        }
+
+        connection.Close();
+    }
+
+    return playerPseudo;
+}
+
 public void FindPlayer(string playerName, bool isPlayer2)
 {
     
@@ -257,7 +283,7 @@ public List<int> GetTopGames(int count)
         using (var command = connection.CreateCommand())
         {
             // Requête pour récupérer les meilleurs jeux triés par ordre décroissant de rank avec une limite spécifiée
-            command.CommandText = "SELECT idPartie FROM Game ORDER BY rank DESC LIMIT @count;";
+            command.CommandText = "SELECT idPartie FROM Game ORDER BY rank ASC LIMIT @count;";
             command.Parameters.AddWithValue("@count", count);
 
             using (var reader = command.ExecuteReader())

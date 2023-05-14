@@ -107,10 +107,12 @@ public class SetScoreEnd : MonoBehaviour
                     textMeshPro.text = dataBase.GetPlayerPseudo(gameInfo1.idPlayer1);
 
                 } else if(i==1){
-                    textMeshPro.text = dataBase.GetPlayerPseudo(gameInfo1.idPlayer2);
+                    textMeshPro.text = gameInfo1.score1.ToString();
+                    
 
                 } else if(i==2){
-                    textMeshPro.text = gameInfo1.score1.ToString();
+                    textMeshPro.text = dataBase.GetPlayerPseudo(gameInfo1.idPlayer2);
+                    
 
                 } else if(i==3){
                     textMeshPro.text = gameInfo1.score2.ToString();

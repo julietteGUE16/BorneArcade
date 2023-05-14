@@ -75,9 +75,8 @@ public void AddPlayer(string playerName, float speedPlayer, float speedRotationP
 
              
                     if(!isPlayer2){
-                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
                         gameSet.idPlayer1 = playerID;
-                        //Debug.Log("idPlayer1 : " + gameSet.idPlayer1);
+                      
                      
                     }else {
                         gameSet.idPlayer2 = playerID;
@@ -97,7 +96,7 @@ public void UpdatePlayer(int playerId, float newSpeedPlayer, float newSpeedRotat
     {
         connection.Open();
 
-        //Debug.Log("idPlayer1 in update : " + playerId);
+        
 
         using (var command = connection.CreateCommand())
         {
@@ -366,7 +365,7 @@ public List<int> GetGameIdsWithRankGreaterThan(int rank, int idPartie)
 {
     List<int> gameIds = new List<int>();
 
-    Debug.Log("idPartie Dans la bdd : " + idPartie);
+   
 
     using (var connection = new SqliteConnection(dbName))
     {
@@ -382,15 +381,15 @@ public List<int> GetGameIdsWithRankGreaterThan(int rank, int idPartie)
 
             using (var reader = command.ExecuteReader())
             {
-                 Debug.Log("_________________________");
+                
                 while (reader.Read())
                 {
                     int gameId = reader.GetInt32(0);
                     gameIds.Add(gameId);
                    
-                    Debug.Log("Game id : " + gameId);
+                 
                 }
-                 Debug.Log("_________________________");
+                 
             }
         }
 

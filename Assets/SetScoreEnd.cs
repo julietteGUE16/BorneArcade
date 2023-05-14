@@ -2,59 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
 public class SetScoreEnd : MonoBehaviour
 {
-    public GameObject PartyObject;
+    public TextMeshProUGUI CurrentGamenamePlayer1;
+    public TextMeshProUGUI CurrentGamenamePlayer2;
+    public TextMeshProUGUI CurrentGameScorePlayer1;
+    public TextMeshProUGUI CurrentGameScorePlayer2;
+    public TextMeshProUGUI CurrentGameRank;
+
+    public Image BestPartyObjectRank1IsCurrentRank;
+    public Image BestPartyObjectRank2IsCurrentRank;
+    public Image BestPartyObjectRank3IsCurrentRank;
+    public Image BestPartyObjectRank4IsCurrentRank;
+    public Image BestPartyObjectRank5IsCurrentRank;
+  
+    
+
     public GameObject BestPartyObject1;
     public GameObject BestPartyObject2;
     public GameObject BestPartyObject3;
     public GameObject BestPartyObject4;
     public GameObject BestPartyObject5;
-    public List<GameObject> partyObjects = new List<GameObject>();
+   
+
     dataBase dataBase;
     gameSet gameSet;
     // Start is called before the first frame update
     void Start()
     {
-      
+    
+        BestPartyObjectRank1IsCurrentRank.enabled = false;
+        BestPartyObjectRank2IsCurrentRank.enabled = false;
+        BestPartyObjectRank3IsCurrentRank.enabled = false;
+        BestPartyObjectRank4IsCurrentRank.enabled = false;
+        BestPartyObjectRank5IsCurrentRank.enabled = false;
         dataBase = GameObject.FindObjectOfType<dataBase>();
         gameSet = GameObject.FindObjectOfType<gameSet>();
-        partyObjects.Add(PartyObject);
-        partyObjects.Add(BestPartyObject1);
-        partyObjects.Add(BestPartyObject2);
-        partyObjects.Add(BestPartyObject3);
-        partyObjects.Add(BestPartyObject4);
-        partyObjects.Add(BestPartyObject5);
-        int count = dataBase.GetGameCount() +1;
-     
-        if(count > 5){
-            count = 5;
+        CurrentGamenamePlayer1.text = gameSet.namePlayer1;
+        CurrentGameScorePlayer1.text = gameSet.scorePlayer1.ToString();
+        CurrentGamenamePlayer2.text = gameSet.namePlayer2;
+        CurrentGameScorePlayer2.text = gameSet.scorePlayer2.ToString();
+        CurrentGameRank.text = gameSet.rankGame.ToString();
+
+        if (gameSet.rankGame == 1)
+        {
+            BestPartyObjectRank1IsCurrentRank.enabled = true;
+        }else if (gameSet.rankGame == 2)
+        {
+            BestPartyObjectRank2IsCurrentRank.enabled = true;
+        }else if (gameSet.rankGame == 3)
+        {
+            BestPartyObjectRank3IsCurrentRank.enabled = true;
+        }else if (gameSet.rankGame == 4)
+        {
+            BestPartyObjectRank4IsCurrentRank.enabled = true;
+        }else if (gameSet.rankGame == 5)
+        {
+            BestPartyObjectRank5IsCurrentRank.enabled = true;
         }
        
-        for(int i = 0; i < count; i++){
-            TextMeshPro[] childrenTextMeshPros = new TextMeshPro[0];
-            for (int j = 0; j < partyObjects.Count; j++)
-            {
-                childrenTextMeshPros = partyObjects[j].GetComponentsInChildren<TextMeshPro>();
-            }
-            
-
-                if (i == 0)
-                {
-                    childrenTextMeshPros[0].text = gameSet.namePlayer1;
-                    childrenTextMeshPros[1].text = gameSet.scorePlayer1.ToString();
-                    childrenTextMeshPros[2].text = gameSet.namePlayer2;
-                    childrenTextMeshPros[3].text = gameSet.scorePlayer2.ToString();
-                    childrenTextMeshPros[4].text = gameSet.rankGame.ToString();
-                }
-                else
-                {
-                   //TODO : autres scores
-                }
-            
-        }
+        
     }
 
     // Update is called once per frame

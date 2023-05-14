@@ -71,7 +71,7 @@ public class ControlCurseur : MonoBehaviour
             gameSet.powerFire1= CursorPowerFirePlayer.GetComponent<Slider>().value;
             gameSet.delayFire1= CursorDelayFirePlayer.GetComponent<Slider>().value;
             }
-            else{   
+            else{
             gameSet.speedPlayer2= cursorSpeedPlayer.GetComponent<Slider>().value;
             gameSet.speedRotationPlayer2= CursorRotationSpeedPlayer.GetComponent<Slider>().value;
             gameSet.powerFire2= CursorPowerFirePlayer.GetComponent<Slider>().value;

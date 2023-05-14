@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651cf5bd80ad2774e8faebe5db182af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 0}
 --- !u!4 &548283834
 Transform:
   m_ObjectHideFlags: 0
@@ -326,8 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf33abce06cdecb468e613215c623782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test1: {fileID: 0}
-  manetteConnecte: {fileID: 0}
   idPartie: 0
   scorePlayer1: 0
   scorePlayer2: 0
@@ -343,6 +340,7 @@ MonoBehaviour:
   speedRotationPlayer2: 0
   powerFire2: 0
   delayFire2: 0
+  rankGame: 0
   firstManetteFound: 0
   playerNumber: 0
 --- !u!4 &1717395878

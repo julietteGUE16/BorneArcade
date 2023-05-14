@@ -138,8 +138,18 @@
                          gameSet.namePlayer2 = namePlayer.text;
                     namePlayer.text = "";
                     
-                    
-                    menuController.loadAllScene("game1");
+                     int randomIndex = Random.Range(0, 2);
+
+    
+                    if (randomIndex == 0)
+                    {
+                        menuController.loadAllScene("game1");
+                    }
+                    else if (randomIndex == 1)
+                    {
+                        menuController.loadAllScene("game2");
+                    }
+                            
 
                     
 

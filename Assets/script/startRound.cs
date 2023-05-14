@@ -111,8 +111,10 @@ public class startRound : MonoBehaviour
             namePlayerWinnerScore.enabled = true;
             namePlayerLooserScore.enabled = true;
 
-
-            dataBase.AddGame(gameSet.idPlayer1,gameSet.idPlayer2,gameSet.scorePlayer1,gameSet.scorePlayer2);
+            int rank = dataBase.CalculateGameRank(gameSet.scorePlayer1,gameSet.scorePlayer2);
+            dataBase.AddGame(gameSet.idPlayer1,gameSet.idPlayer2,gameSet.scorePlayer1,gameSet.scorePlayer2, rank);
+            dataBase.UpdateGameRankInDatabase(rank);
+            gameSet.rankGame = rank;
         }
 
         if (isRunning)

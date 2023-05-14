@@ -29,6 +29,8 @@ public class gameSet : MonoBehaviour
     public float powerFire2=0.2f;
     public float delayFire2=0.2f;
 
+    public int rankGame=0;
+
     bool canClick = true;
     public Joystick j2=null;
     public Gamepad g2=null;

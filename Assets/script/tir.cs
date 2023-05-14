@@ -5,12 +5,9 @@ public class tir : MonoBehaviour
 
     public Vector2 mouvement;
     public GameObject projectilePrefab;
-    public float tirSpeed = 10f;
+    float tirSpeed = 100f;
 
-    // Autres variables du script et méthodes...
-
-    // Update is called once per frame
-
+  
     
     void Start()
     {

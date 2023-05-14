@@ -4,26 +4,47 @@ using UnityEngine;
 
 public class setScore : MonoBehaviour
 {
-    GameObject scoreText;
+    
     public GameObject scoreTextPrefab;
-    public Transform spawn;
     public GameObject parent;
-    int poistionDépartY = 130;
+    //private GameObject scoreText;
+    float positionDépartY = 130f;
+     int count=1;
     // Start is called before the first frame update
     void Start()
     {
-        /*Debug.Log("part1");
+       
         //scoreText = Instantiate(scoreTextPrefab, spawn.position, spawn.rotation);
-        scoreText = Instantiate(scoreTextPrefab, parent.transform);
-
-        Vector3 newPosition = objTransform.position + new Vector3(0f, poistionDépartY, 0f);
-        objTransform.position = newPosition;
-        Debug.Log("part2");*/
+        while (count > 0)
+        {
+            CreateScoreText();
+            count--;
+           
+            positionDépartY -= 72f;
+        }
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("newPosition : x  =" + scoreText.transform.position.x + " y = " + scoreText.transform.position.y  + " z = " + scoreText.transform.position.z);
+    }
+
+    void CreateScoreText()
+    {
+        GameObject scoreText = Instantiate(scoreTextPrefab, parent.transform);
+    
+        float posY = positionDépartY;
+        Vector3 currentPosition = scoreText.transform.position;
+            currentPosition.x = -229f;
+            currentPosition.y = posY;
+            currentPosition.z = 0f;
+
+            scoreText.transform.position = currentPosition;
+
+
+       
         
     }
 }

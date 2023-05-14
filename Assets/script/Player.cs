@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
     public int life = 5;
     public float delayFire = 0.2f;
     public float powerFire = 1f;
-    public float speedFire = 10f;
     public float score = 0f;
     EventSystem eventSystem;
     public bool canFire = true;

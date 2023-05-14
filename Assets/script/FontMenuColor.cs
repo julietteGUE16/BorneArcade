@@ -24,7 +24,7 @@ public class FontMenuColor : MonoBehaviour
             // Activer le texte
             image.color = colorSelected;
 
-            // Attendre pendant la moitié de l'intervalle
+            // Attendre pendant la moitié de l'intervalle   
             yield return new WaitForSeconds(blinkInterval / 2f);
 
             // Désactiver le texte

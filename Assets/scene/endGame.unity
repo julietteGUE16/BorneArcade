@@ -1855,8 +1855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGamenamePlayer1: {fileID: 1626499709}
-  CurrentGamenamePlayer2: {fileID: 655341953}
-  CurrentGameScorePlayer1: {fileID: 1987180463}
+  CurrentGamenamePlayer2: {fileID: 1987180463}
+  CurrentGameScorePlayer1: {fileID: 655341953}
   CurrentGameScorePlayer2: {fileID: 973086972}
   CurrentGameRank: {fileID: 1381149962}
   BestPartyObjectRank1IsCurrentRank: {fileID: 196560018}

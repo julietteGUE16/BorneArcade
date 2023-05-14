@@ -5,7 +5,7 @@ using UnityEngine;
 public class weapon : MonoBehaviour
 {
 
-    GameObject projectile;
+    //GameObject projectile;
     public GameObject projectilePrefab;
     public Vector2 playerMovement;
     public Transform spawn;
@@ -26,7 +26,7 @@ public class weapon : MonoBehaviour
         // Créer le projectile
         
 
-         projectile = Instantiate(projectilePrefab, spawn.position, spawn.rotation);
+         GameObject projectile = Instantiate(projectilePrefab, spawn.position, spawn.rotation);
          projectile.transform.localScale = new Vector3(scale, scale, scale);
         
 

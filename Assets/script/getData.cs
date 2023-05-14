@@ -16,7 +16,7 @@
         public TextMeshProUGUI PlayerNameTextPanel;
         public TextMeshProUGUI sameName;
         PanelOpener panelOpener;
-        EventSystem eventSystem;
+        public EventSystem eventSystem;
         public GameObject panelControl;
         public GameObject menuControl;
         ControlCurseur controlCurseur;

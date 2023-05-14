@@ -93,10 +93,11 @@
             }   
             }else {
                 dataBase.AddPlayer(namePlayer.text,controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value, isPlayer2);
-                dataBase.HeExist = true;    
+                   
 
 
             }
+            dataBase.HeExist = true;    
 
             controlCurseur.ResetCursor();
             controlCurseur.firstTime = true;

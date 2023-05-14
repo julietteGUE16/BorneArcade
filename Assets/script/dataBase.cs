@@ -77,7 +77,7 @@ public void AddPlayer(string playerName, float speedPlayer, float speedRotationP
                     if(!isPlayer2){
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
                         gameSet.idPlayer1 = playerID;
-                        Debug.Log("idPlayer1 : " + gameSet.idPlayer1);
+                        //Debug.Log("idPlayer1 : " + gameSet.idPlayer1);
                      
                     }else {
                         gameSet.idPlayer2 = playerID;
@@ -97,7 +97,7 @@ public void UpdatePlayer(int playerId, float newSpeedPlayer, float newSpeedRotat
     {
         connection.Open();
 
-        Debug.Log("idPlayer1 in update : " + playerId);
+        //Debug.Log("idPlayer1 in update : " + playerId);
 
         using (var command = connection.CreateCommand())
         {
@@ -211,7 +211,7 @@ public void AddGame(int idPlayer1, int idPlayer2, int score1, int score2, int ra
             command.ExecuteNonQuery();
         }
 
-        gameSet.idGame = GetGameCount() + 1;
+        gameSet.idPartie = GetGameCount() + 1;
 
         connection.Close();
     }
@@ -333,7 +333,7 @@ public int GetGameCount()
 
     return gameCount;
 }
-public void UpdateGameRankInDatabase(int newRank, int gameId)
+public void UpdateGameRankInDatabase(int newRank, int idPartie)
 {
     using (var connection = new SqliteConnection(dbName))
     {
@@ -342,9 +342,9 @@ public void UpdateGameRankInDatabase(int newRank, int gameId)
         // Mettre à jour les parties avec un classement supérieur ou égal au nouveau classement
         using (var command = connection.CreateCommand())
         {
-            command.CommandText = "UPDATE Game SET rank = rank + 1 WHERE rank >= @newRank AND id != @gameId;";
+            command.CommandText = "UPDATE Game SET rank = rank + 1 WHERE rank >= @newRank AND idPartie != @idPartie;";
             command.Parameters.AddWithValue("@newRank", newRank);
-            command.Parameters.AddWithValue("@gameId", gameId);
+            command.Parameters.AddWithValue("@idPartie", idPartie);
             command.ExecuteNonQuery();
         }
 
@@ -360,18 +360,25 @@ public int CalculateGameRank(int score1, int score2)
     {
         connection.Open();
 
-        // Récupérer le meilleur score entre score1 et score2
+        // Sélectionner le meilleur score entre score1 et score2
         int bestScore = Math.Max(score1, score2);
 
-        using (var command = connection.CreateCommand())
-        {
-            // Compter le nombre de parties avec un meilleur score
-            command.CommandText = "SELECT COUNT(*) FROM Game WHERE (CASE WHEN score1 >= score2 THEN score1 ELSE score2 END) > @bestScore;";
-            command.Parameters.AddWithValue("@bestScore", bestScore);
-            int count = Convert.ToInt32(command.ExecuteScalar());
+        Debug.Log("bestScore = " + bestScore);
 
-            // Ajouter 1 au classement pour chaque partie avec un meilleur score
-            rank += count;
+      
+
+       
+            using (var command = connection.CreateCommand())
+            {
+                // Compter le nombre de parties avec un meilleur score
+                command.CommandText = "SELECT COUNT(*) FROM Game WHERE (CASE WHEN score1 >= score2 THEN score1 ELSE score2 END) > @bestScore;";
+                command.Parameters.AddWithValue("@bestScore", bestScore);
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                Debug.Log("count = " + count);
+                rank += count;
+                 
+            
         }
 
         connection.Close();

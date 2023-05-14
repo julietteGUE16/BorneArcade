@@ -17,13 +17,14 @@ public class menuController : MonoBehaviour
     MyButton myButton;
     PanelOpener PanelOpener;
     ControlCurseur controlCurseur;
+    dataBase dataBase;
     
     // Start is called before the first frame update
     void Start()
     {
         getData = FindObjectOfType<getData>();
         myButton = FindObjectOfType<MyButton>();
-
+        dataBase = FindObjectOfType<dataBase>();
         myKeyboard = FindObjectOfType<ControllerKeyboard>();
         PanelOpener = FindObjectOfType<PanelOpener>();
         controlCurseur = FindObjectOfType<ControlCurseur>();
@@ -46,6 +47,7 @@ public class menuController : MonoBehaviour
                 getData.namePlayer.text = getData.playerNames[0];
                 getData.playerNameText.text = "Player 1";
                 getData.PlayerNameTextPanel.text = "Player 1";
+                dataBase.HeExist = true;   
 
                
             }else {

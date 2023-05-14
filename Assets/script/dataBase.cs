@@ -195,9 +195,12 @@ public void FindPlayer(string playerName, bool isPlayer2)
 
 public void AddGame(int idPlayer1, int idPlayer2, int score1, int score2, int rank)
 {
+
     using (var connection = new SqliteConnection(dbName))
     {
         connection.Open();
+
+        gameSet.idPartie = GetGameCount() + 1;
 
         using (var command = connection.CreateCommand())
         {
@@ -211,7 +214,7 @@ public void AddGame(int idPlayer1, int idPlayer2, int score1, int score2, int ra
             command.ExecuteNonQuery();
         }
 
-        gameSet.idPartie = GetGameCount() + 1;
+        
 
         connection.Close();
     }
@@ -339,17 +342,62 @@ public void UpdateGameRankInDatabase(int newRank, int idPartie)
     {
         connection.Open();
 
+        // Récupérer la liste des identifiants des parties ayant un rang supérieur ou égal à newRank
+        List<int> gameIds = GetGameIdsWithRankGreaterThan(newRank, idPartie);
+
         // Mettre à jour les parties avec un classement supérieur ou égal au nouveau classement
         using (var command = connection.CreateCommand())
         {
-            command.CommandText = "UPDATE Game SET rank = rank + 1 WHERE rank >= @newRank AND idPartie != @idPartie;";
-            command.Parameters.AddWithValue("@newRank", newRank);
-            command.Parameters.AddWithValue("@idPartie", idPartie);
-            command.ExecuteNonQuery();
+            command.CommandText = "UPDATE Game SET rank = rank + 1 WHERE idPartie = @gameId;";
+            command.Parameters.AddWithValue("@gameId", 0);
+            foreach (int gameId in gameIds)
+            {
+                
+                  command.Parameters["@gameId"].Value = gameId;
+                command.ExecuteNonQuery();
+            }
         }
 
         connection.Close();
     }
+}
+
+public List<int> GetGameIdsWithRankGreaterThan(int rank, int idPartie)
+{
+    List<int> gameIds = new List<int>();
+
+    Debug.Log("idPartie Dans la bdd : " + idPartie);
+
+    using (var connection = new SqliteConnection(dbName))
+    {
+        connection.Open();
+
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = "SELECT idPartie FROM Game WHERE rank >= @rank AND idPartie != @idPartie;";
+            command.Parameters.AddWithValue("@rank", rank);
+            command.Parameters.AddWithValue("@idPartie", idPartie);
+
+            
+
+            using (var reader = command.ExecuteReader())
+            {
+                 Debug.Log("_________________________");
+                while (reader.Read())
+                {
+                    int gameId = reader.GetInt32(0);
+                    gameIds.Add(gameId);
+                   
+                    Debug.Log("Game id : " + gameId);
+                }
+                 Debug.Log("_________________________");
+            }
+        }
+
+        connection.Close();
+    }
+
+    return gameIds;
 }
 
 public int CalculateGameRank(int score1, int score2)
@@ -363,7 +411,7 @@ public int CalculateGameRank(int score1, int score2)
         // Sélectionner le meilleur score entre score1 et score2
         int bestScore = Math.Max(score1, score2);
 
-        Debug.Log("bestScore = " + bestScore);
+      
 
       
 
@@ -375,7 +423,7 @@ public int CalculateGameRank(int score1, int score2)
                 command.Parameters.AddWithValue("@bestScore", bestScore);
 
                 int count = Convert.ToInt32(command.ExecuteScalar());
-                Debug.Log("count = " + count);
+               
                 rank += count;
                  
             
@@ -385,6 +433,23 @@ public int CalculateGameRank(int score1, int score2)
     }
 
     return rank;
+}
+
+public void DeleteAllGames()
+{
+    using (var connection = new SqliteConnection(dbName))
+    {
+        connection.Open();
+
+        // Supprimer toutes les entrées de la table "Game"
+        using (var command = connection.CreateCommand())
+        {
+            command.CommandText = "DELETE FROM Game;";
+            command.ExecuteNonQuery();
+        }
+
+        connection.Close();
+    }
 }
 
 }

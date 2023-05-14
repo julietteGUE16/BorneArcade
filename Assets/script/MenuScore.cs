@@ -19,6 +19,6 @@ public class MenuScore : MonoBehaviour
     }
 
     public void DeleteData(){
-
+        database.DeleteAllGames();
     }
 }

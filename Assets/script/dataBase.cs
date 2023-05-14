@@ -211,6 +211,8 @@ public void AddGame(int idPlayer1, int idPlayer2, int score1, int score2, int ra
             command.ExecuteNonQuery();
         }
 
+        gameSet.idGame = GetGameCount() + 1;
+
         connection.Close();
     }
 }
@@ -331,10 +333,8 @@ public int GetGameCount()
 
     return gameCount;
 }
-public void UpdateGameRankInDatabase(int newRank)
+public void UpdateGameRankInDatabase(int newRank, int gameId)
 {
-   
-
     using (var connection = new SqliteConnection(dbName))
     {
         connection.Open();
@@ -342,8 +342,9 @@ public void UpdateGameRankInDatabase(int newRank)
         // Mettre à jour les parties avec un classement supérieur ou égal au nouveau classement
         using (var command = connection.CreateCommand())
         {
-            command.CommandText = "UPDATE Game SET rank = rank + 1 WHERE rank >= @newrank;";
+            command.CommandText = "UPDATE Game SET rank = rank + 1 WHERE rank >= @newRank AND id != @gameId;";
             command.Parameters.AddWithValue("@newRank", newRank);
+            command.Parameters.AddWithValue("@gameId", gameId);
             command.ExecuteNonQuery();
         }
 

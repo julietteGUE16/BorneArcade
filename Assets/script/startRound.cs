@@ -113,7 +113,7 @@ public class startRound : MonoBehaviour
 
             int rank = dataBase.CalculateGameRank(gameSet.scorePlayer1,gameSet.scorePlayer2);
             dataBase.AddGame(gameSet.idPlayer1,gameSet.idPlayer2,gameSet.scorePlayer1,gameSet.scorePlayer2, rank);
-            dataBase.UpdateGameRankInDatabase(rank);
+            dataBase.UpdateGameRankInDatabase(rank, gameSet.idPartie);
             gameSet.rankGame = rank;
         }
 

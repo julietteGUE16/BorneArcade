@@ -3016,7 +3016,6 @@ MonoBehaviour:
   life: 5
   delayFire: 0.2
   powerFire: 1
-  speedFire: 10
   score: 0
   canFire: 1
 --- !u!61 &1083694017
@@ -3439,7 +3438,6 @@ MonoBehaviour:
   life: 5
   delayFire: 0.2
   powerFire: 1
-  speedFire: 10
   score: 0
   canFire: 1
 --- !u!61 &1210726539
@@ -3541,7 +3539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BORNE D'ARCADE
+  m_text: CUBE FIGHTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2170f571a8a3a2447b863533f11bdeed, type: 2}
   m_sharedMaterial: {fileID: 2338515157257097493, guid: 2170f571a8a3a2447b863533f11bdeed, type: 2}

@@ -15,6 +15,7 @@ public class dataBase : MonoBehaviour
     float speedRotationPlayer=0f;
     float powerFire=0f;
     float delayFire=0f;
+    public bool HeExist = true;
  
  
 
@@ -76,6 +77,7 @@ public void AddPlayer(string playerName, float speedPlayer, float speedRotationP
                     if(!isPlayer2){
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
                         gameSet.idPlayer1 = playerID;
+                        Debug.Log("idPlayer1 : " + gameSet.idPlayer1);
                      
                     }else {
                         gameSet.idPlayer2 = playerID;
@@ -94,6 +96,8 @@ public void UpdatePlayer(int playerId, float newSpeedPlayer, float newSpeedRotat
     using (var connection = new SqliteConnection(dbName))
     {
         connection.Open();
+
+        Debug.Log("idPlayer1 in update : " + playerId);
 
         using (var command = connection.CreateCommand())
         {
@@ -133,31 +137,27 @@ public void FindPlayer(string playerName, bool isPlayer2)
                      powerFire = reader.GetFloat(4);
                      delayFire = reader.GetFloat(5);
 
-
-
-
-                    
-                    
-
-                 
-
+    
                     // Exemple : Afficher les valeurs dans la console
                 }
                 else
                 {
                     idPlayer = -1;
                     // Le joueur n'existe pas encore, appeler la fonction AddPlayer pour l'ajouter à la base de données
-                    AddPlayer(playerName, 1f, 1f, 1f, 1f, isPlayer2);
+                    HeExist  = false;
+                    
                 }
 
                 if(idPlayer != -1){
                     if(!isPlayer2){
+                      
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
                         gameSet.idPlayer1 = idPlayer;
                         gameSet.namePlayer1 = namePlayer;
                         gameSet.speedPlayer1 = speedPlayer;
                         gameSet.speedRotationPlayer1 = speedRotationPlayer;
                         gameSet.powerFire1 = powerFire;
+                        gameSet.delayFire1 = delayFire;
                     }else {
                         // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
                         gameSet.idPlayer2 = idPlayer;
@@ -165,6 +165,25 @@ public void FindPlayer(string playerName, bool isPlayer2)
                         gameSet.speedPlayer2 = speedPlayer;
                         gameSet.speedRotationPlayer2 = speedRotationPlayer;
                         gameSet.powerFire2 = powerFire;
+                        gameSet.delayFire2 = delayFire;
+                    }
+                } else {
+                    if(!isPlayer2){
+                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
+                        gameSet.idPlayer1 = -1;
+                        gameSet.namePlayer1 = "";
+                        gameSet.speedPlayer1 = 1f;
+                        gameSet.speedRotationPlayer1 = 1f;
+                        gameSet.powerFire1 = 1f;
+                        gameSet.delayFire1 = 1f;
+                    }else {
+                        // Le joueur existe déjà, récupérer les valeurs des colonnes de la base de données
+                        gameSet.idPlayer2 = -1;
+                        gameSet.namePlayer2 = "";
+                        gameSet.speedPlayer2 = 1f;
+                        gameSet.speedRotationPlayer2 = 1f;
+                        gameSet.powerFire2 = 1f;
+                        gameSet.delayFire2 = 1f;
                     }
                 }
             }
@@ -282,7 +301,7 @@ public GameInfo GetGameInfo(int gameId)
                 }
                 else
                 {
-                    Debug.Log("Game not found with ID: " + gameId);
+                  
                 }
             }
         }

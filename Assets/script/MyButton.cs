@@ -8,7 +8,7 @@ public class MyButton : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         // Code à exécuter lors du clic sur le bouton
-        Debug.Log("Bouton cliqué !");
+        
         name = eventData.pointerPress.name;
         
 

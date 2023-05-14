@@ -135,7 +135,6 @@ public class startRound : MonoBehaviour
     {
         isRunning = false;
         elapsedTime = Time.time - startTime;
-        //Debug.Log("Temps final : " + elapsedTime.ToString("F2") + " secondes");
         return elapsedTime;
     }
 }

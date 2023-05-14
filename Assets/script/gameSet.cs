@@ -85,14 +85,6 @@ public class gameSet : MonoBehaviour
         }
 
 
-
-
-         
-
-        Debug.Log("j1 = "+ j1);
-        Debug.Log("g1 = "+ g1);
-        Debug.Log("j2 = "+ j2);
-        Debug.Log("g2 = "+ g2);
         
         
     }
@@ -107,7 +99,7 @@ public class gameSet : MonoBehaviour
 
 
         
-            Debug.Log("j2 = "+ j1.trigger.value);
+           
         if(j1.trigger.value == 1){
             if(canClick){
                 if(SceneManager.GetActiveScene().name != "game1"){

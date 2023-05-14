@@ -30,9 +30,9 @@ public class DeviceHandler : MonoBehaviour
     {
         foreach (DeviceData device in devices)
         {
-            Debug.Log("Nom du périphérique : " + device.deviceName);
+           /* Debug.Log("Nom du périphérique : " + device.deviceName);
             Debug.Log("ID du périphérique : " + device.deviceId);
-            Debug.Log("Type du périphérique : " + device.deviceType);
+            Debug.Log("Type du périphérique : " + device.deviceType);*/
 
             //gameSet.test1.text += "\n"+" device "+device.deviceId+" :  "+device.deviceName;
 

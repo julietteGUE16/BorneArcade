@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class menuController : MonoBehaviour 
 {
     
-    ButtonHoverDetector buttonHoverDetector;
+   
     ControllerKeyboard myKeyboard;
     GameObject lastHighlightedButton;
     getData getData;
@@ -23,7 +23,7 @@ public class menuController : MonoBehaviour
     {
         getData = FindObjectOfType<getData>();
         myButton = FindObjectOfType<MyButton>();
-        buttonHoverDetector = FindObjectOfType<ButtonHoverDetector>();
+
         myKeyboard = FindObjectOfType<ControllerKeyboard>();
         PanelOpener = FindObjectOfType<PanelOpener>();
         controlCurseur = FindObjectOfType<ControlCurseur>();
@@ -71,8 +71,10 @@ public class menuController : MonoBehaviour
 
     public void CloseThePanel(){
         PanelOpener.ClosePanel();
+        controlCurseur.ResetCursor();
         controlCurseur.panelOpen = false;
         getData.eventSystem.SetSelectedGameObject(getData.menuControl);
+        controlCurseur.firstTime = true;
 
     }
 

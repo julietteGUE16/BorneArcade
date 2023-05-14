@@ -48,12 +48,7 @@
 
         private void Update (){
 
-        /*if(namePlayer.text.Length > 0){
-            
-           Debug.Log("Soumettre le texte entré : "+namePlayer.text);
-        } else {
-            Debug.Log("Veuillez rentrer un nom");
-        }*/
+        
         }
 
        
@@ -74,52 +69,30 @@
                 }
                 else
                 {
+              
+              
                 dataBase.FindPlayer(namePlayer.text, isPlayer2);
                 panelOpener.OpenPanel();
                 controlCurseur.panelOpen = true;
                 eventSystem.SetSelectedGameObject(panelControl);
             }
 
-                
-
-
-                //eventSystem.firstSelectedGameObject = panelControl;
-                
-              
-                /*if(!isPlayer2){
-                    playerNames[0] = namePlayer.text;
-                    namePlayer.text = "";
-                    playerNameText.text = "Player 2";
-                    PlayerNameTextPanel.text = "Player 2";
-                    isPlayer2 = true;
-                } else {
-                    if(playerNames[0] == namePlayer.text){
-                        sameName.enabled = true;
-                        
-                        
-                    } else {
-                        playerNames[1] = namePlayer.text;
-                    namePlayer.text = "";
-                    for(int i = 0; i < playerNames.Length; i++){
-                    //Debug.Log("Player "+i+" : "+playerNames[i]);
-                    }
-                    
-                    menuController.loadAllScene("game1");
-
-                    }
-
-                }*/
+             
             }
         }
          public void ValiderPanel(){
             controlCurseur.panelOpen = false;
             eventSystem.SetSelectedGameObject(menuControl);
-           panelOpener.ClosePanel();
-
+            panelOpener.ClosePanel();
+            if(dataBase.HeExist){
             if(!isPlayer2){
                 dataBase.UpdatePlayer(gameSet.idPlayer1, controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value);
             } else {
                 dataBase.UpdatePlayer(gameSet.idPlayer2, controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value);
+            }   
+            }else {
+                dataBase.AddPlayer(namePlayer.text,controlCurseur.cursorSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorRotationSpeedPlayer.GetComponent<Slider>().value, controlCurseur.CursorPowerFirePlayer.GetComponent<Slider>().value, controlCurseur.CursorDelayFirePlayer.GetComponent<Slider>().value, isPlayer2);
+                dataBase.HeExist = true;
             }
 
             controlCurseur.ResetCursor();

@@ -28,13 +28,13 @@ public class SetScoreEnd : MonoBehaviour
         partyObjects.Add(BestPartyObject4);
         partyObjects.Add(BestPartyObject5);
         int count = dataBase.GetGameCount() +1;
-        Debug.Log("count : " + count);
+     
         if(count > 5){
             count = 5;
         }
-        Debug.Log("party count = "+partyObjects.Count);
+       
         for(int i = 0; i < count; i++){
-            TextMeshPro[] childrenTextMeshPros=  new TextMeshPro[0];
+            TextMeshPro[] childrenTextMeshPros = new TextMeshPro[0];
             for (int j = 0; j < partyObjects.Count; j++)
             {
                 childrenTextMeshPros = partyObjects[j].GetComponentsInChildren<TextMeshPro>();

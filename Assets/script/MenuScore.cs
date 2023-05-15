@@ -5,10 +5,12 @@ using UnityEngine;
 public class MenuScore : MonoBehaviour
 {
     dataBase database;
+    menuController menuController;
     // Start is called before the first frame update
     void Start()
     {
         database = GameObject.FindObjectOfType<dataBase>(); 
+        menuController = GameObject.FindObjectOfType<menuController>();
         //todo : get score from database
     }
 
@@ -19,6 +21,8 @@ public class MenuScore : MonoBehaviour
     }
 
     public void DeleteData(){
+        menuController.loadAllScene("scores");
         database.DeleteAllGames();
+        
     }
 }

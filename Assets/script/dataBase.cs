@@ -366,7 +366,6 @@ public class DataBase : MonoBehaviour
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
-
             // Récupérer la liste des identifiants des parties ayant un rang supérieur ou égal à newRank
             List<int> gameIds = GetGameIdsWithRankGreaterThan(newRank, idPartie);
 
@@ -390,21 +389,14 @@ public class DataBase : MonoBehaviour
     public List<int> GetGameIdsWithRankGreaterThan(int rank, int idPartie)
     {
         List<int> gameIds = new List<int>();
-
-    
-
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
-
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT idPartie FROM Game WHERE rank >= @rank AND idPartie != @idPartie;";
                 command.Parameters.AddWithValue("@rank", rank);
                 command.Parameters.AddWithValue("@idPartie", idPartie);
-
-                
-
                 using (var reader = command.ExecuteReader())
                 {
                     
@@ -412,10 +404,7 @@ public class DataBase : MonoBehaviour
                     {
                         int gameId = reader.GetInt32(0);
                         gameIds.Add(gameId);
-                    
-                    
                     }
-                    
                 }
             }
 

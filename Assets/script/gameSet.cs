@@ -60,6 +60,27 @@ public class GameSet : MonoBehaviour
         
     void Start()
     {
+
+        idPartie=-1;
+        scorePlayer1=0;
+        scorePlayer2=0;
+
+        idPlayer1=-1;
+        idPlayer2=-1;
+        namePlayer1="";
+        namePlayer2="";
+        
+        speedPlayer1=0.1f;
+        speedRotationPlayer1=0.2f;
+        powerFire1=0.2f;
+        delayFire1=0.2f;
+        
+        speedPlayer2=0.1f;
+        speedRotationPlayer2=0.2f;
+        powerFire2=0.2f;
+        delayFire2=0.2f;
+
+
         eventSystem = EventSystem.current;
         var devices = InputSystem.devices;
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-
+ 
 /*
 Ce script permet que le nom du joueur suive le joueur
 */

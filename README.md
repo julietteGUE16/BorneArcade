@@ -1,6 +1,5 @@
 ***
-# Arcade Terminal
-
+# CUBE FIGHTER!
 ***
 
 ## **Introduction**
@@ -9,9 +8,9 @@ Our main goal was to create a game arcade.
 This project required a mastery of those following notions:
 - Project management
 - Unity
--  C#)
+- C#
 - SQLiter
--Git
+- Git
 - Agile Methodology
 - CRUD
 - Raspberry

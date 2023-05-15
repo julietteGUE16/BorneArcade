@@ -68,8 +68,12 @@ public class MenuController : MonoBehaviour
 
     public void Quit ()
     {
-        
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.ExitPlaymode();
+        #else
+            Application.Quit();
+        #endif
+      
         
     }
 

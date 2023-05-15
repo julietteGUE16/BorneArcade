@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
             {
                 if (canFire)
                 {
-                    weapon.playerMovement = lastMovement.normalized;
+                    weapon.playerMovement =  rb.velocity.normalized;
                     weapon.EffectuerTir(powerFire);
                     StartCoroutine(FireRate());
                 }

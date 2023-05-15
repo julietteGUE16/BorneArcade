@@ -4,22 +4,32 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-
-public class menuController : MonoBehaviour 
+/*
+Ce script permet de controler le menu
+*/
+public class MenuController : MonoBehaviour 
 {
-    Joystick j2=null;
-    ButtonHoverDetector buttonHoverDetector;
+    
+   
     ControllerKeyboard myKeyboard;
     GameObject lastHighlightedButton;
+    GetData getData;
+    MyButton myButton;
+    PanelOpener PanelOpener;
+    ControlCurseur controlCurseur;
+    DataBase dataBase;
+    
     // Start is called before the first frame update
     void Start()
     {
-         var devices = InputSystem.devices;
-         j2 = devices[1] as Joystick;
-         Debug.Log("j2 : "+j2.name);
-         buttonHoverDetector = FindObjectOfType<ButtonHoverDetector>();
-            myKeyboard =    FindObjectOfType<ControllerKeyboard>();
+        getData = FindObjectOfType<GetData>();
+        myButton = FindObjectOfType<MyButton>();
+        dataBase = FindObjectOfType<DataBase>();
+        myKeyboard = FindObjectOfType<ControllerKeyboard>();
+        PanelOpener = FindObjectOfType<PanelOpener>();
+        controlCurseur = FindObjectOfType<ControlCurseur>();
             
         
     }
@@ -27,42 +37,50 @@ public class menuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     /*if(j2 != null){
-       
-      if(j2.trigger.ReadValue() == 1){
-                //Debug.Log("j2 : " + j2.trigger.ReadValue());
-                
-           
-                if (buttonHoverDetector != null)
-                {
-                    
-                    // Utilisez ici la fonction pour réagir au bouton en surbrillance
-                    Debug.Log("buttonHoverDetector : " +    buttonHoverDetector.getButtonName());
-                    buttonHoverDetector.OnPointerEnter(null);
-                    //myKeyboard.setletter(buttonHoverDetector.getButtonName());
-                }
-            }else {
-
-
-            }
-     }*/
+    
         
+    }
+
+    public void goBack(string sceneName)
+    {
+
+         if(getData.isPlayer2){
+            getData.isPlayer2 = false;
+            getData.namePlayer.text = getData.playerNames[0];
+            getData.playerNameText.text = "Player 1";
+            getData.playerNameTextPanel.text = "Player 1";
+            dataBase.heExist = true;   
+
+               
+        }else {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        }
     }
 
     public void loadAllScene(string sceneName)
     {
-        //yield return new WaitForSeconds(0.5f);
+       
+        
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        
+       
     }
 
     public void Quit ()
     {
-        if(Application.isEditor){
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-        else{
+        
         Application.Quit();
-        }
+        
+    }
+
+    public void CloseThePanel(){
+
+        PanelOpener.ClosePanel();
+        controlCurseur.ResetCursor();
+        controlCurseur.panelOpen = false;
+        getData.eventSystem.SetSelectedGameObject(getData.menuControl);
+        controlCurseur.firstTime = true;
+
     }
 
     

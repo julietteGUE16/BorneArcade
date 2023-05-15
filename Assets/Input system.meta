@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Input system.meta
 guid: 94592e85db9d472498e680f4d2301f9b
+=======
+guid: 6daeedd7e299206419740cd679cff497
+>>>>>>> b547a144d25364bc4f29dd61b0cd670b6c722e0d:Assets/police.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

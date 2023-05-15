@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public class tir : MonoBehaviour
+/*
+Ce script permet de controler le tir du joueur
+*/
+
+
+public class Tir : MonoBehaviour
 {
 
     public Vector2 mouvement;
@@ -27,6 +32,7 @@ public class tir : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
+
         }else if(collision.gameObject.tag == "Player"){
             
             collision.gameObject.GetComponent<Player>().life -= 1;

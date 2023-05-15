@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class followPlayer : MonoBehaviour
+
+
+/*
+Ce script permet que le nom du joueur suive le joueur
+*/
+
+
+public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
-
- 
-  
-   
-    
     public new TextMeshPro name;
-    // Start is called before the first frame update
+    
     void Start()
     {
         
@@ -22,7 +24,7 @@ public class followPlayer : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         transform.position = player.transform.position + new Vector3(0, 1.1f, 0);

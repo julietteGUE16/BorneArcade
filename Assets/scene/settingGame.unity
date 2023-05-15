@@ -451,7 +451,7 @@ MonoBehaviour:
   text: {fileID: 287842064}
   colorSelected: {r: 0, g: 1, b: 0.06005001, a: 1}
   colorUnselected: {r: 0, g: 0.2924528, b: 0.0026118034, a: 1}
-  blinkInterval: 1.2
+  blinkInterval: 0.4
 --- !u!1 &291042828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   - 
   isPlayer2: 0
   playerNameText: {fileID: 287842064}
-  PlayerNameTextPanel: {fileID: 1463880115}
+  playerNameTextPanel: {fileID: 1463880115}
   sameName: {fileID: 394078624}
   eventSystem: {fileID: 0}
   panelControl: {fileID: 1803194157}
@@ -6064,7 +6064,7 @@ MonoBehaviour:
   - 
   isPlayer2: 0
   playerNameText: {fileID: 0}
-  PlayerNameTextPanel: {fileID: 0}
+  playerNameTextPanel: {fileID: 0}
   sameName: {fileID: 0}
   eventSystem: {fileID: 0}
   panelControl: {fileID: 0}

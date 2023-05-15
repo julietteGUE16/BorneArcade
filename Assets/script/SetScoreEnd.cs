@@ -5,6 +5,10 @@ using TMPro;
 using UnityEngine.UI;
 
 
+/*
+Ce script permet d'afficher les scores à la fin de la partie
+*/
+
 public class SetScoreEnd : MonoBehaviour
 {
     public TextMeshProUGUI CurrentGamenamePlayer1;
@@ -13,34 +17,8 @@ public class SetScoreEnd : MonoBehaviour
     public TextMeshProUGUI CurrentGameScorePlayer2;
     public TextMeshProUGUI CurrentGameRank;
 
-   /* public TextMeshProUGUI Rank1NamePlayer1;
-    public TextMeshProUGUI Rank1NamePlayer2;
-    public TextMeshProUGUI Rank1ScorePlayer1;
-    public TextMeshProUGUI Rank1ScorePlayer2;
-
-    public TextMeshProUGUI Rank2NamePlayer1;
-    public TextMeshProUGUI Rank2NamePlayer2;
-    public TextMeshProUGUI Rank2ScorePlayer1;
-    public TextMeshProUGUI Rank2ScorePlayer2;
-
-    public TextMeshProUGUI Rank3NamePlayer1;
-    public TextMeshProUGUI Rank3NamePlayer2;
-    public TextMeshProUGUI Rank3ScorePlayer1;
-    public TextMeshProUGUI Rank3ScorePlayer2;
-
-    public TextMeshProUGUI Rank4NamePlayer1;
-    public TextMeshProUGUI Rank4NamePlayer2;
-    public TextMeshProUGUI Rank4ScorePlayer1;
-    public TextMeshProUGUI Rank4ScorePlayer2;
-
-    public TextMeshProUGUI Rank5NamePlayer1;
-    public TextMeshProUGUI Rank5NamePlayer2;
-    public TextMeshProUGUI Rank5ScorePlayer1;
-    public TextMeshProUGUI Rank5ScorePlayer2;*/
-
+   
     GameInfo gameInfo1;
-
-
 
     public Image BestPartyObjectRank1IsCurrentRank;
     public Image BestPartyObjectRank2IsCurrentRank;
@@ -59,8 +37,8 @@ public class SetScoreEnd : MonoBehaviour
     
    
 
-    dataBase dataBase;
-    gameSet gameSet;
+    DataBase dataBase;
+    GameSet gameSet;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,8 +50,8 @@ public class SetScoreEnd : MonoBehaviour
         BestPartyObjectRank3IsCurrentRank.enabled = false;
         BestPartyObjectRank4IsCurrentRank.enabled = false;
         BestPartyObjectRank5IsCurrentRank.enabled = false;
-        dataBase = GameObject.FindObjectOfType<dataBase>();
-        gameSet = GameObject.FindObjectOfType<gameSet>();
+        dataBase = GameObject.FindObjectOfType<DataBase>();
+        gameSet = GameObject.FindObjectOfType<GameSet>();
         CurrentGamenamePlayer1.text = gameSet.namePlayer1;
         CurrentGameScorePlayer1.text = gameSet.scorePlayer1.ToString();
         CurrentGamenamePlayer2.text = gameSet.namePlayer2;

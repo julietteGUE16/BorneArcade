@@ -7,12 +7,17 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/*
+Ce script permet d'avoir toute les informations sur le joueur et de le controler
+*/
+
+
 public class Player : MonoBehaviour
 {
     public GameObject spriteRendererLooseLife;
-    public weapon weapon;
+    public Weapon weapon;
     private Rigidbody2D rb;
-    menuController menuController;
+    MenuController menuController;
     public int playerNumber;
     private Vector2 smoothDampVelocity;
     public float smoothDampTime = 0.1f;
@@ -29,7 +34,7 @@ public class Player : MonoBehaviour
     public Color lifeLose;
     public bool isEnd = false;
 
-    public gameSet gameSet;
+    public GameSet gameSet;
     public string playerName = "";
     public float speed = 10f;
     public float rotationSpeed = 5f;
@@ -39,16 +44,16 @@ public class Player : MonoBehaviour
     public float score = 0f;
     EventSystem eventSystem;
     public bool canFire = true;
-    startRound startRound;
+    StartRound startRound;
     Joystick j2;
     Gamepad g2;
 
     void Start()
     {
-        gameSet = GameObject.FindObjectOfType<gameSet>();
+        gameSet = GameObject.FindObjectOfType<GameSet>();
         spriteRendererLooseLife.GetComponent<SpriteRenderer>().enabled = false;
-        startRound = GameObject.FindObjectOfType<startRound>();
-        menuController = GameObject.FindObjectOfType<menuController>();
+        startRound = GameObject.FindObjectOfType<StartRound>();
+        menuController = GameObject.FindObjectOfType<MenuController>();
 
         speed = speed * 10;
         rotationSpeed = rotationSpeed * 600;

@@ -8,7 +8,13 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class gameSet : MonoBehaviour
+
+/*
+Ce script permet de stocker les informations de la partie en cours
+*/
+
+
+public class GameSet : MonoBehaviour
 {
     public int idPartie=-1;
     public int scorePlayer1=0;
@@ -57,13 +63,7 @@ public class gameSet : MonoBehaviour
         eventSystem = EventSystem.current;
         var devices = InputSystem.devices;
 
-         
-      
-        //Debug.Log(" device 1 :  "+devices[playerNumber].name);
-        //Debug.Log("test = "+devices[playerNumber].name.Contains("XInputControllerWindows"));
-        for(int i=0;i<devices.Count;i++){
-
-           
+        for(int i=0;i<devices.Count;i++){          
 
             if(devices[i].name.Contains("XInputControllerWindows") || devices[i].name.Contains("XInputControllerWindows1")){
                 if(firstManetteFound == false){
@@ -84,8 +84,7 @@ public class gameSet : MonoBehaviour
 
         }
 
-
-        
+       
         
     }
 
@@ -95,22 +94,15 @@ public class gameSet : MonoBehaviour
 
         eventSystem = EventSystem.current;
           if(j1 != null){
-          
-
-
-        
-           
-        if(j1.trigger.value == 1){
-            if(canClick){
-                if(SceneManager.GetActiveScene().name != "game1"){
-                    canClick = false;
-                    StartCoroutine(waitForClick());
-                    eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+            if(j1.trigger.value == 1){
+                if(canClick){
+                    if(SceneManager.GetActiveScene().name != "game1"){
+                        canClick = false;
+                        StartCoroutine(waitForClick());
+                        eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+                    }
                 }
             }
-        }
-           
-  
         }
         
         

@@ -1,20 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+Ce script permet de controler le panel
+*/
 
 public class PanelOpener : MonoBehaviour
 {
     public GameObject panel;
  
 
-   
-
-    private void Start()
-    {
-      
-       
-   
-    }
 
     public void OpenPanel()
     {

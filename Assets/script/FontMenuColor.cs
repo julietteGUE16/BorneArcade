@@ -4,7 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-
+/*
+Ce script permet de changer la couleur des images dans les menu et de le faire clignoter
+*/
 public class FontMenuColor : MonoBehaviour
 {
     public Image image;
@@ -24,13 +26,13 @@ public class FontMenuColor : MonoBehaviour
             // Activer le texte
             image.color = colorSelected;
 
-            // Attendre pendant la moitié de l'intervalle   
+            
             yield return new WaitForSeconds(blinkInterval / 2f);
 
             // Désactiver le texte
             image.color = colorUnselected;
 
-            // Attendre pendant la moitié de l'intervalle
+           
             yield return new WaitForSeconds(blinkInterval / 2f);
         }
     }

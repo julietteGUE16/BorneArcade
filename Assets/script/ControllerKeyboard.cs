@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-    using TMPro;
+using TMPro;
+
+/*
+Ce script permet de controler le clavier virtuel
+*/
 
 
 public class ControllerKeyboard : MonoBehaviour
@@ -13,7 +17,6 @@ public class ControllerKeyboard : MonoBehaviour
     TextMeshProUGUI playerNumber;
    
 
-    // Start is called before the first frame update
     void Start()
     {
         setNamePlayerText.enabled = true;
@@ -22,7 +25,6 @@ public class ControllerKeyboard : MonoBehaviour
         playerNumber = GameObject.Find("player").GetComponent<TextMeshProUGUI>();
     }  
 
-    // Update is called once per frame
     void Update()
     {
        if(namePlayer.text.Length > 0){
@@ -42,14 +44,14 @@ public class ControllerKeyboard : MonoBehaviour
      public void setletter(string letter){
         if(letter == "Suppr"){
             namePlayer.text = "";
-       }else if(letter == "DELETE"  && namePlayer.text.Length > 0){
+        }else if(letter == "DELETE"  && namePlayer.text.Length > 0){
             namePlayer.text = namePlayer.text.Substring(0, namePlayer.text.Length - 1);
         }else if(letter != "DELETE"){
-                if(namePlayer.text.Length < 10){
+            if(namePlayer.text.Length < 10){
                 namePlayer.text =  namePlayer.text + letter;
             } else {
-            maxCharacters.enabled = true;
-        } 
+                 maxCharacters.enabled = true;
+            } 
         }
 
     }

@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class weapon : MonoBehaviour
+/*
+Ce script permet de tirer des projectiles
+*/
+
+public class Weapon : MonoBehaviour
 {
 
-    //GameObject projectile;
+    
     public GameObject projectilePrefab;
     public Vector2 playerMovement;
     public Transform spawn;
@@ -30,16 +34,7 @@ public class weapon : MonoBehaviour
          projectile.transform.localScale = new Vector3(scale, scale, scale);
         
 
-        projectilePrefab.GetComponent<tir>().mouvement = playerMovement;
-
-
-       
-         //projectile.GetComponent<tir>().mouvement = playerMovement;
-
-        // Ajouter une force au projectile pour le faire avancer
-       
-        
-        
-       
+        projectilePrefab.GetComponent<Tir>().mouvement = playerMovement;
+      
     }
 }

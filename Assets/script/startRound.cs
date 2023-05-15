@@ -5,23 +5,30 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class startRound : MonoBehaviour
+
+/*
+Ce script permet de lancer le round et gère les paramètres du round tout au long de la partie
+*/
+
+
+
+public class StartRound : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public TextMeshProUGUI player1;
     public TextMeshProUGUI player2;
-    gameSet gameSet;
+    GameSet gameSet;
 
     public TextMeshProUGUI finish;
-   public TextMeshProUGUI winner;
-   public TextMeshProUGUI looser;
-   public TextMeshProUGUI namePlayerWinner;
-   public TextMeshProUGUI namePlayerLooser;
-   public TextMeshProUGUI namePlayerWinnerScore;
-   public TextMeshProUGUI namePlayerLooserScore;
-   public Image font;
+    public TextMeshProUGUI winner;
+    public TextMeshProUGUI looser;
+    public TextMeshProUGUI namePlayerWinner;
+    public TextMeshProUGUI namePlayerLooser;
+    public TextMeshProUGUI namePlayerWinnerScore;
+    public TextMeshProUGUI namePlayerLooserScore;
+    public Image font;
 
-    
+        
     private bool isRunning = false;
     private float startTime;
     private float elapsedTime;
@@ -31,14 +38,14 @@ public class startRound : MonoBehaviour
 
     public bool isEnd = false;
 
-    dataBase dataBase;
+    DataBase dataBase;
 
     
     // Start is called before the first frame update
     void Start()
     {
 
-        dataBase = GameObject.FindObjectOfType<dataBase>();
+        dataBase = GameObject.FindObjectOfType<DataBase>();
         font.enabled = false;
         finish.enabled = false;
         winner.enabled = false;
@@ -49,12 +56,12 @@ public class startRound : MonoBehaviour
         namePlayerLooserScore.enabled = false;
          isRunning = true;
         startTime = Time.time;
-        gameSet = GameObject.FindObjectOfType<gameSet>();
+        gameSet = GameObject.FindObjectOfType<GameSet>();
         
         player1.text = gameSet.namePlayer1;
         player2.text = gameSet.namePlayer2;
         text.enabled   = true;
-        StartCoroutine(StartRound()); 
+        StartCoroutine(StartRoundFunction()); 
 
         player1Object.GetComponent<Player>().playerName = gameSet.namePlayer1;
         player2Object.GetComponent<Player>().playerName = gameSet.namePlayer2;
@@ -125,7 +132,7 @@ public class startRound : MonoBehaviour
         }
     }
 
-    IEnumerator StartRound(){
+    IEnumerator StartRoundFunction(){
         
         yield return new WaitForSeconds(0.5f);
         text.enabled = false; 

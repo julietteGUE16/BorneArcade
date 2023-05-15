@@ -4,7 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class setScore : MonoBehaviour
+/*
+Ce script permet d'afficher les scores dans le menu score
+*/
+
+
+public class SetScore : MonoBehaviour
 {
     
    
@@ -12,7 +17,7 @@ public class setScore : MonoBehaviour
     public GameObject parent;
     private GameObject scoreText;
     int count=0;
-    dataBase dataBase;
+    DataBase dataBase;
     GameInfo gameInfo1;
      
      
@@ -20,22 +25,18 @@ public class setScore : MonoBehaviour
      void Start()
     {
         
-         dataBase = GameObject.FindObjectOfType<dataBase>();
+        dataBase = GameObject.FindObjectOfType<DataBase>();
 
-         List<int> idGame = dataBase.GetTopGames(dataBase.GetGameCount());
-         
-        
+        List<int> idGame = dataBase.GetTopGames(dataBase.GetGameCount());
        
-         
-         
         while (count<dataBase.GetGameCount())
         {
 
             gameInfo1 = dataBase.GetGameInfo(idGame[count]);
-                // Instancie une copie de l'objet en entrée
+            // Instancie une copie de l'objet en entrée
             GameObject copiedObject = Instantiate(scoreTextPrefab, scoreTextPrefab.transform.parent);
 
-            // Déplace la nouvelle instance vers le bas de 70 unités
+          
             Vector3 newPosition = copiedObject.transform.position;
             newPosition.y -= 70f*(count+1);
             copiedObject.transform.position = newPosition;
@@ -80,20 +81,9 @@ public class setScore : MonoBehaviour
         } else {
             scoreTextPrefab.SetActive(false);
 
-        }
-
-
-        
-       
+        }     
     
 }
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("newPosition : x  =" + scoreText.transform.position.x + " y = " + scoreText.transform.position.y  + " z = " + scoreText.transform.position.z);
-    }
 
     
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
+/*
+Ce script permet de changer la couleur du texte dans les menu et de le faire clignoter
+*/
 public class TextMenuColor : MonoBehaviour
 {
     public TextMeshProUGUI text;
@@ -23,13 +25,12 @@ public class TextMenuColor : MonoBehaviour
             // Activer le texte
             text.color = colorSelected;
 
-            // Attendre pendant la moitié de l'intervalle
             yield return new WaitForSeconds(blinkInterval / 2f);
 
             // Désactiver le texte
             text.color = colorUnselected;
 
-            // Attendre pendant la moitié de l'intervalle
+           
             yield return new WaitForSeconds(blinkInterval / 2f);
         }
     }

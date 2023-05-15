@@ -8,19 +8,21 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 /*
- * Classe permettant de récupérer les périphériques envoyés par le script js mis dans le html 
+ * Classe permettant de récupérer les périphériques envoyés par le script js mis dans le html
+
+ Ici il n'est pas utile dans la version windows mais il est nécessaire pour la version web (pas mis en place) 
  */
 
 public class DeviceHandler : MonoBehaviour
 {
 
 
-    gameSet gameSet;
+    //GameSet gameSet;
 
     void Start (){
 
     DontDestroyOnLoad(gameObject);
-    gameSet = GameObject.Find("gameSet").GetComponent<gameSet>();
+    //gameSet = GameObject.Find("gameSet").GetComponent<GameSet>();
     }
  
 

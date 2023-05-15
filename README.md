@@ -1,5 +1,7 @@
-***
-# CUBE FIGHTER!
+# **DEV PROJECT**
+ **CUBE FIGHTER**<br>
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com)   [![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](http://forthebadge.com)<img src="https://zupimages.net/up/22/40/8lld.png" width= "223" height= "36">
 ***
 
 ## **Introduction**
@@ -15,8 +17,14 @@ This project required a mastery of those following notions:
 - CRUD
 - Raspberry
 etc.
+<img src="https://zupimages.net/up/23/20/bgtr.png" >
 ***
 
+## *How to play?* </br>
+
+The player uses the **joystick** to navigate in the menu or to move his player, **the push button** to fire or the A button on gamepad. 
+<br>
+***
 ## 🤖 **Technology**
 - [Visual Studio code](https://code.visualstudio.com/): our development environment!
 - [Unity](https://www.php.net/manual/en/intro-whatis.php): 

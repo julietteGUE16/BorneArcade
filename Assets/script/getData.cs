@@ -26,6 +26,7 @@ public class GetData : MonoBehaviour
     public GameObject panelControl;
     public GameObject menuControl;
     ControlCurseur controlCurseur;
+    
     GameSet gameSet;
     
 
@@ -41,8 +42,9 @@ public class GetData : MonoBehaviour
         sameName = GameObject.Find("sameName").GetComponent<TextMeshProUGUI>();
         sameName.enabled = false;
         controlCurseur = GameObject.FindObjectOfType<ControlCurseur>();
+       
 
-        Debug.Log("controlCurseur : " + controlCurseur);
+      
 
 
         if (namePlayer != null)

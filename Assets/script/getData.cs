@@ -42,6 +42,8 @@ public class GetData : MonoBehaviour
         sameName.enabled = false;
         controlCurseur = GameObject.FindObjectOfType<ControlCurseur>();
 
+        Debug.Log("controlCurseur : " + controlCurseur);
+
 
         if (namePlayer != null)
         {

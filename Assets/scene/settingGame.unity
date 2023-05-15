@@ -1839,7 +1839,7 @@ MonoBehaviour:
   playerNameText: {fileID: 287842064}
   playerNameTextPanel: {fileID: 1463880115}
   sameName: {fileID: 394078624}
-  eventSystem: {fileID: 0}
+  eventSystem: {fileID: 697359185}
   panelControl: {fileID: 1803194157}
   menuControl: {fileID: 530213544}
 --- !u!1 &553701686
@@ -6016,7 +6016,6 @@ GameObject:
   - component: {fileID: 1376426824}
   - component: {fileID: 1376426823}
   - component: {fileID: 1376426822}
-  - component: {fileID: 1376426821}
   m_Layer: 5
   m_Name: input name
   m_TagString: Untagged
@@ -6046,29 +6045,6 @@ RectTransform:
   m_AnchoredPosition: {x: 10.402, y: 101}
   m_SizeDelta: {x: 253.0141, y: 50.3319}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1376426821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376426819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06c81f8312336f44d823ae32ebd45d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  namePlayer: {fileID: 1870010602}
-  playerNames:
-  - 
-  - 
-  isPlayer2: 0
-  playerNameText: {fileID: 0}
-  playerNameTextPanel: {fileID: 0}
-  sameName: {fileID: 0}
-  eventSystem: {fileID: 0}
-  panelControl: {fileID: 0}
-  menuControl: {fileID: 0}
 --- !u!114 &1376426822
 MonoBehaviour:
   m_ObjectHideFlags: 0

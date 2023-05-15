@@ -8,6 +8,11 @@ Ce script permet de controler le panel
 public class PanelOpener : MonoBehaviour
 {
     public GameObject panel;
+
+    void Start()
+    {
+        panel.SetActive(false);
+    }
  
 
 

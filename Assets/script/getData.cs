@@ -53,6 +53,7 @@ public class GetData : MonoBehaviour
         }
         
         panelOpener.ClosePanel();
+         //eventSystem.SetSelectedGameObject(panelControl);
         
     }
 

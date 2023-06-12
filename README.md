@@ -16,7 +16,7 @@ This project required a mastery of those following notions:
 - Agile Methodology
 - CRUD
 - Raspberry
-etc.
+
 <img src="https://zupimages.net/up/23/20/bgtr.png" width="50%" >
 
 *You can find all the documentation in the folder "Document" !*

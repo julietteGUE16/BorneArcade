@@ -19,6 +19,7 @@ This project required a mastery of those following notions:
 etc.
 <img src="https://zupimages.net/up/23/20/bgtr.png" >
 ***
+You can find all the documentation in the folder "Document"
 
 ## *How to play?* </br>
 

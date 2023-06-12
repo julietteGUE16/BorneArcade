@@ -18,9 +18,10 @@ This project required a mastery of those following notions:
 - Raspberry
 etc.
 <img src="https://zupimages.net/up/23/20/bgtr.png" >
-***
-You can find all the documentation in the folder "Document"
 
+*You can find all the documentation in the folder "Document" !*
+
+***
 ## *How to play?* </br>
 
 The player uses the **joystick** to navigate in the menu or to move his player, **the push button** to fire or the A button on gamepad. 

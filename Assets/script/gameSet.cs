@@ -94,7 +94,7 @@ public class GameSet : MonoBehaviour
                     g2 = devices[i] as Gamepad;
                 }
             
-            }else  if(devices[i].name.Contains("DragonRise Inc.   Generic   USB  Joystick")) {
+            }else  if(devices[i].name.Contains("Generic   USB  Joystick")) {
                 if(firstManetteFound == false){
                     firstManetteFound = true;
                     j1 = devices[i] as Joystick;
@@ -122,11 +122,10 @@ public class GameSet : MonoBehaviour
                         StartCoroutine(waitForClick());
                         eventSystem.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
                     }
+
                 }
             }
         }
-        
-        
     }
 
     public IEnumerator waitForClick(){
